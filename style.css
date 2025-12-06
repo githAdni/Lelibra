@@ -1,18 +1,33 @@
 /* ==========================================
-   CSS Variables for Easy Customization
+   LELIBRA ART GALLERY
+   Christmas Theme - Warm, Cozy & Professional
+   ========================================== */
+
+/* ==========================================
+   CSS Variables - Christmas Color Palette
    ========================================== */
 :root {
-    /* Color Palette - Warm Gallery Aesthetic */
-    --color-primary: #2c2420;
-    --color-secondary: #8b7355;
-    --color-accent: #c9a875;
-    --color-light: #f8f6f3;
-    --color-white: #ffffff;
-    --color-overlay: rgba(44, 36, 32, 0.85);
+    /* Christmas Color Palette */
+    --color-burgundy: #8B1538;          /* Deep burgundy red from logo */
+    --color-forest-green: #2D5016;      /* Rich forest green */
+    --color-pine: #3D6B2E;              /* Medium pine green */
+    --color-sage: #8B9D83;              /* Soft sage green */
+    --color-cream: #FFF8F0;             /* Warm cream */
+    --color-ivory: #FFFEF9;             /* Soft ivory white */
+    --color-gold: #D4AF37;              /* Warm gold accent */
+    --color-copper: #B87333;            /* Copper accent */
+    
+    /* Semantic Colors */
+    --color-primary: var(--color-burgundy);
+    --color-secondary: var(--color-forest-green);
+    --color-accent: var(--color-gold);
+    --color-light: var(--color-cream);
+    --color-white: var(--color-ivory);
+    --color-overlay: rgba(139, 21, 56, 0.9);
     
     /* Typography */
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'Lato', sans-serif;
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
     
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -24,6 +39,11 @@
     /* Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-quick: all 0.2s ease;
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px rgba(139, 21, 56, 0.1);
+    --shadow-medium: 0 8px 30px rgba(139, 21, 56, 0.15);
+    --shadow-strong: 0 12px 40px rgba(139, 21, 56, 0.2);
 }
 
 /* ==========================================
@@ -37,10 +57,35 @@
 
 body {
     font-family: var(--font-body);
-    color: var(--color-primary);
-    background-color: var(--color-light);
-    line-height: 1.6;
+    color: var(--color-forest-green);
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-ivory) 100%);
+    line-height: 1.7;
     overflow-x: hidden;
+}
+
+/* Subtle texture overlay for warmth */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(139, 21, 56, 0.02) 2px,
+            rgba(139, 21, 56, 0.02) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+body > * {
+    position: relative;
+    z-index: 2;
 }
 
 img {
@@ -64,17 +109,19 @@ a {
 }
 
 /* ==========================================
-   Header
+   Header - Festive & Elegant
    ========================================== */
 .site-header {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #3d332d 100%);
-    color: var(--color-light);
-    padding: var(--spacing-xl) var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-burgundy) 0%, #6B1028 100%);
+    color: var(--color-ivory);
+    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
     text-align: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 6px 30px rgba(139, 21, 56, 0.3);
 }
 
+/* Decorative pattern overlay */
 .site-header::before {
     content: '';
     position: absolute;
@@ -82,47 +129,94 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 255, 255, 0.03) 2px,
-            rgba(255, 255, 255, 0.03) 4px
-        );
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
     pointer-events: none;
+}
+
+/* Pine branch decoration */
+.header-decoration {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--color-cream));
+    opacity: 0.3;
 }
 
 .header-content {
     position: relative;
     z-index: 1;
-    animation: fadeInUp 1s ease-out;
+    animation: fadeInDown 1s ease-out;
+}
+
+.logo-container {
+    margin-bottom: var(--spacing-md);
+    animation: fadeInScale 1s ease-out;
+}
+
+.site-logo {
+    width: 180px;
+    height: auto;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    transition: var(--transition-smooth);
+}
+
+.site-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4));
 }
 
 .site-title {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 300;
-    letter-spacing: 0.05em;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
     margin-bottom: var(--spacing-sm);
-    text-transform: uppercase;
+    color: var(--color-ivory);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .site-subtitle {
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     font-weight: 300;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--color-accent);
-    opacity: 0.9;
+    color: var(--color-gold);
+    opacity: 0.95;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* ==========================================
-   About Section
+   About Section - Warm & Inviting
    ========================================== */
 .about-section {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-white);
+    background: var(--color-white);
+    position: relative;
+}
+
+/* Decorative corner elements */
+.about-section::before,
+.about-section::after {
+    content: '❋';
+    position: absolute;
+    font-size: 3rem;
+    color: var(--color-pine);
+    opacity: 0.15;
+}
+
+.about-section::before {
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+}
+
+.about-section::after {
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
 }
 
 .about-content {
@@ -130,49 +224,88 @@ a {
     margin: 0 auto;
     text-align: center;
     animation: fadeInUp 1s ease-out 0.3s backwards;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
 }
 
 .about-content h2 {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: var(--spacing-md);
-    color: var(--color-primary);
+    color: var(--color-burgundy);
+    position: relative;
+    display: inline-block;
+}
+
+.about-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--color-gold), var(--color-copper));
+    border-radius: 2px;
 }
 
 .about-content p {
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.9;
     margin-bottom: var(--spacing-sm);
-    color: var(--color-secondary);
+    color: var(--color-forest-green);
 }
 
 .replace-note {
     font-size: 0.9rem;
     font-style: italic;
-    color: var(--color-accent);
+    color: var(--color-sage);
     margin-top: var(--spacing-md);
     padding: var(--spacing-sm);
-    background-color: rgba(201, 168, 117, 0.1);
+    background-color: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid var(--color-gold);
     border-radius: 4px;
 }
 
 /* ==========================================
-   Gallery Section
+   Gallery Section - Festive Grid
    ========================================== */
 .gallery-section {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-light);
+    background: linear-gradient(to bottom, var(--color-white), var(--color-cream));
 }
 
 .gallery-title {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     text-align: center;
     margin-bottom: var(--spacing-lg);
-    color: var(--color-primary);
+    color: var(--color-burgundy);
     animation: fadeInUp 1s ease-out 0.5s backwards;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gallery-title::before {
+    content: '✦';
+    position: absolute;
+    left: -40px;
+    color: var(--color-gold);
+    font-size: 1.5rem;
+}
+
+.gallery-title::after {
+    content: '✦';
+    position: absolute;
+    right: -40px;
+    color: var(--color-gold);
+    font-size: 1.5rem;
 }
 
 .gallery-grid {
@@ -183,15 +316,16 @@ a {
 }
 
 /* ==========================================
-   Artwork Cards
+   Artwork Cards - Cozy & Professional
    ========================================== */
 .artwork-card {
-    background-color: var(--color-white);
-    border-radius: 2px;
+    background: var(--color-white);
+    border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     transition: var(--transition-smooth);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-soft);
+    border: 2px solid transparent;
     animation: fadeInScale 0.6s ease-out backwards;
 }
 
@@ -203,15 +337,16 @@ a {
 .artwork-card:nth-child(6) { animation-delay: 0.6s; }
 
 .artwork-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-strong);
+    border-color: var(--color-gold);
 }
 
 .artwork-image-wrapper {
     position: relative;
     overflow: hidden;
     aspect-ratio: 4 / 5;
-    background-color: #e8e6e3;
+    background: linear-gradient(135deg, var(--color-cream), #F5E6D3);
 }
 
 .artwork-image {
@@ -222,7 +357,7 @@ a {
 }
 
 .artwork-card:hover .artwork-image {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .artwork-overlay {
@@ -231,7 +366,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--color-overlay);
+    background: linear-gradient(135deg, var(--color-burgundy) 0%, var(--color-forest-green) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -240,45 +375,50 @@ a {
 }
 
 .artwork-card:hover .artwork-overlay {
-    opacity: 1;
+    opacity: 0.95;
 }
 
 .view-detail {
     font-family: var(--font-display);
     font-size: 1.5rem;
-    color: var(--color-white);
+    font-weight: 600;
+    color: var(--color-ivory);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: var(--spacing-sm) var(--spacing-md);
-    border: 2px solid var(--color-white);
+    border: 2px solid var(--color-gold);
+    background: rgba(212, 175, 55, 0.2);
     transition: var(--transition-quick);
+    border-radius: 4px;
 }
 
 .view-detail:hover {
-    background-color: var(--color-white);
-    color: var(--color-primary);
+    background: var(--color-gold);
+    color: var(--color-burgundy);
+    transform: scale(1.05);
 }
 
 .artwork-info {
     padding: var(--spacing-md);
+    background: var(--color-white);
 }
 
 .artwork-title {
     font-family: var(--font-display);
     font-size: 1.4rem;
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: var(--spacing-xs);
-    color: var(--color-primary);
+    color: var(--color-burgundy);
 }
 
 .artwork-details {
     font-size: 0.9rem;
-    color: var(--color-secondary);
+    color: var(--color-sage);
     letter-spacing: 0.05em;
 }
 
 /* ==========================================
-   Lightbox
+   Lightbox - Elegant Viewer
    ========================================== */
 .lightbox {
     position: fixed;
@@ -286,13 +426,14 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.95);
+    background: linear-gradient(135deg, rgba(139, 21, 56, 0.95), rgba(45, 80, 22, 0.95));
     z-index: 9999;
     display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .lightbox.active {
@@ -313,25 +454,32 @@ a {
     max-width: 100%;
     max-height: 75vh;
     object-fit: contain;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+    border: 4px solid var(--color-gold);
+    border-radius: 4px;
 }
 
 .lightbox-info {
     margin-top: var(--spacing-md);
     text-align: center;
-    color: var(--color-white);
+    color: var(--color-ivory);
+    background: rgba(0, 0, 0, 0.3);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
 }
 
 #lightbox-title {
     font-family: var(--font-display);
     font-size: 1.8rem;
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: var(--spacing-xs);
+    color: var(--color-gold);
 }
 
 #lightbox-details {
     font-size: 1rem;
-    color: var(--color-accent);
+    color: var(--color-ivory);
     letter-spacing: 0.05em;
 }
 
@@ -339,10 +487,11 @@ a {
 .lightbox-prev,
 .lightbox-next {
     position: absolute;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    color: var(--color-white);
+    background: rgba(212, 175, 55, 0.2);
+    border: 2px solid var(--color-gold);
+    color: var(--color-gold);
     font-size: 2rem;
+    font-weight: bold;
     width: 50px;
     height: 50px;
     display: flex;
@@ -351,13 +500,15 @@ a {
     cursor: pointer;
     transition: var(--transition-quick);
     backdrop-filter: blur(10px);
+    border-radius: 50%;
 }
 
 .lightbox-close:hover,
 .lightbox-prev:hover,
 .lightbox-next:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: var(--color-white);
+    background: var(--color-gold);
+    color: var(--color-burgundy);
+    transform: scale(1.1);
 }
 
 .lightbox-close {
@@ -380,26 +531,44 @@ a {
 }
 
 /* ==========================================
-   Contact Section
+   Contact Section - Warm Invitation
    ========================================== */
 .contact-section {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-white);
+    background: linear-gradient(135deg, var(--color-forest-green), var(--color-pine));
+    color: var(--color-ivory);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Snowflake decoration */
+.contact-section::before {
+    content: '❅ ❆ ❅ ❆ ❅';
+    position: absolute;
+    top: var(--spacing-md);
+    left: 0;
+    right: 0;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 4rem;
     text-align: center;
 }
 
 .contact-section h2 {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: var(--spacing-md);
-    color: var(--color-primary);
+    color: var(--color-gold);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .contact-text {
     font-size: 1.1rem;
-    color: var(--color-secondary);
+    color: var(--color-ivory);
     margin-bottom: var(--spacing-md);
+    opacity: 0.9;
 }
 
 .contact-links {
@@ -410,29 +579,72 @@ a {
 }
 
 .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
     font-size: 1.1rem;
-    color: var(--color-accent);
+    color: var(--color-ivory);
     padding: var(--spacing-sm) var(--spacing-md);
-    border: 2px solid var(--color-accent);
+    border: 2px solid var(--color-gold);
+    background: rgba(212, 175, 55, 0.1);
     transition: var(--transition-quick);
     letter-spacing: 0.05em;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
 }
 
 .contact-link:hover {
-    background-color: var(--color-accent);
-    color: var(--color-white);
+    background: var(--color-gold);
+    color: var(--color-burgundy);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.contact-link svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* ==========================================
-   Footer
+   Footer - Elegant Signature
    ========================================== */
 .site-footer {
-    background-color: var(--color-primary);
-    color: var(--color-light);
+    background: linear-gradient(135deg, var(--color-burgundy), #6B1028);
+    color: var(--color-ivory);
+    padding: var(--spacing-lg) var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+}
+
+.footer-content {
     text-align: center;
-    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.footer-logo {
+    width: 120px;
+    height: auto;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.site-footer p {
     font-size: 0.9rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
 }
 
 /* ==========================================
@@ -442,6 +654,17 @@ a {
     from {
         opacity: 0;
         transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
     }
     to {
         opacity: 1;
@@ -480,6 +703,14 @@ a {
         gap: var(--spacing-sm);
     }
     
+    .site-logo {
+        width: 140px;
+    }
+    
+    .footer-logo {
+        width: 100px;
+    }
+    
     .lightbox-prev,
     .lightbox-next {
         width: 40px;
@@ -492,6 +723,11 @@ a {
         height: 40px;
         font-size: 2rem;
     }
+    
+    .gallery-title::before,
+    .gallery-title::after {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -502,5 +738,13 @@ a {
     :root {
         --spacing-lg: 3rem;
         --spacing-xl: 4rem;
+    }
+    
+    .site-logo {
+        width: 120px;
+    }
+    
+    .contact-link {
+        font-size: 1rem;
     }
 }
