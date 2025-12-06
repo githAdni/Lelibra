@@ -3,77 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lelibra</title>
+    <title>LeLibra — Original Canvas Works</title>
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Cormorant:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="main-nav">
-        <div class="nav-container">
-            <a href="#" class="logo-link">
-                <img src="images/logo.png" alt="Lelibra" class="nav-logo">
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+        <a href="#" class="nav-logo-link">
+            <img src="images/logo.png" alt="LeLibra" class="nav-logo">
+        </a>
+        <div class="nav-links">
+            <a href="#gallery" class="nav-link">Works</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-section">
+    <!-- Hero Section - Bold & Dramatic -->
+    <section class="hero">
+        <div class="hero-background"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Lelibra</h1>
-            <p class="hero-subtitle">Original Canvas Works</p>
+            <div class="hero-logo-container">
+                <img src="images/logo.png" alt="LeLibra" class="hero-logo">
+            </div>
+            <h1 class="hero-headline">Canvas Works<br>That Speak</h1>
+            <div class="hero-scroll">
+                <span>Scroll to explore</span>
+                <div class="scroll-line"></div>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Gallery Section -->
+    <!-- Statement Section -->
+    <section class="statement-section">
+        <div class="statement-content">
+            <h2 class="statement-text">"Art is not what you see,<br>but what you make others see."</h2>
+        </div>
+    </section>
+
+    <!-- Gallery Section - Your Beloved Grid -->
     <section class="gallery-section" id="gallery">
+        <div class="gallery-header">
+            <h2 class="gallery-title">Selected Works</h2>
+            <p class="gallery-subtitle">Original canvas paintings</p>
+        </div>
         <div class="container">
-            <!-- This gallery grid will be automatically populated by JavaScript -->
             <div class="gallery-grid" id="gallery-grid">
                 <!-- Artwork cards will be dynamically inserted here -->
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section - Editorial Style -->
     <section class="about-section" id="about">
-        <div class="container-narrow">
-            <div class="section-header">
-                <h2 class="section-title">About</h2>
+        <div class="about-grid">
+            <div class="about-text-col">
+                <h2 class="about-title">About<br>the Artist</h2>
+                <div class="about-text">
+                    <p>LeLibra is a contemporary artist working primarily with canvas and mixed media. Each piece explores the intersection of color, emotion, and texture.</p>
+                    <p>The work invites viewers into a dialogue about perception and feeling, creating spaces for contemplation and discovery.</p>
+                    <p class="replace-note">[Replace with your own artist statement and background]</p>
+                </div>
             </div>
-            <div class="about-content">
-                <p class="about-text">Welcome to my gallery. Each canvas tells its own story through color, texture, and form. I create art that resonates and inspires, working with passion and dedication to bring beauty into the world.</p>
-                <p class="about-text">My work explores the intersection of emotion and expression, using the canvas as a medium for connection and contemplation.</p>
-                <p class="replace-note">[Customize this section with your own artist statement]</p>
+            <div class="about-visual-col">
+                <div class="about-accent"></div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - Bold & Simple -->
     <section class="contact-section" id="contact">
-        <div class="container-narrow">
-            <div class="section-header">
-                <h2 class="section-title">Get in Touch</h2>
-            </div>
-            <div class="contact-content">
-                <p class="contact-intro">For inquiries about available works or commissions:</p>
-                <div class="contact-links">
-                    <a href="mailto:your.email@example.com" class="contact-link">
-                        <span class="contact-label">Email</span>
-                        <span class="contact-value">your.email@example.com</span>
-                    </a>
-                    <a href="https://www.instagram.com/lelibra_/" class="contact-link" target="_blank">
-                        <span class="contact-label">Instagram</span>
-                        <span class="contact-value">@lelibra_</span>
-                    </a>
+        <div class="contact-container">
+            <h2 class="contact-title">Let's Connect</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <a href="mailto:your.email@example.com" class="contact-value">your.email@example.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Instagram</span>
+                    <a href="https://www.instagram.com/lelibra_/" class="contact-value" target="_blank">@lelibra_</a>
                 </div>
             </div>
         </div>
@@ -81,10 +94,8 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-text">&copy; 2024 Lelibra. All rights reserved.</p>
-            </div>
+        <div class="footer-content">
+            <p>&copy; 2024 LeLibra. All rights reserved.</p>
         </div>
     </footer>
 

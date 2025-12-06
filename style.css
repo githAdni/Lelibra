@@ -1,37 +1,39 @@
 /* ==========================================
-   LELIBRA - REFINED GALLERY
-   Elegant, Sophisticated, Minimal
+   LELIBRA - BOLD EDITORIAL DESIGN
+   Dark, Dramatic, Artistic
    ========================================== */
 
 /* ==========================================
-   CSS Variables
+   CSS Variables - Bold & Moody
    ========================================== */
 :root {
-    /* Refined Color Palette - Christmas colors as subtle accents */
+    /* Dark, Dramatic Palette */
+    --color-deep-burgundy: #4A0E1F;
     --color-burgundy: #8B1538;
-    --color-forest: #2D5016;
-    --color-gold: #C9A875;
-    --color-cream: #FDFBF7;
-    --color-warm-white: #FFFEFB;
-    --color-charcoal: #2C2420;
-    --color-gray: #6B6560;
-    --color-light-gray: #E8E6E3;
+    --color-forest: #1A2E0F;
+    --color-pine: #2D5016;
+    --color-gold: #D4AF37;
+    --color-cream: #F5F1E8;
+    --color-black: #0A0A0A;
+    --color-charcoal: #1A1A1A;
+    --color-white: #FFFFFF;
     
     /* Typography */
-    --font-serif: 'Crimson Pro', serif;
-    --font-display: 'Cormorant', serif;
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Work Sans', sans-serif;
     
-    /* Spacing - generous */
+    /* Spacing - Bold */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
     --spacing-xl: 6rem;
     --spacing-xxl: 10rem;
+    --spacing-huge: 15rem;
     
     /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-quick: all 0.2s ease;
+    --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-quick: all 0.3s ease;
 }
 
 /* ==========================================
@@ -48,10 +50,10 @@ html {
 }
 
 body {
-    font-family: var(--font-serif);
-    color: var(--color-charcoal);
-    background-color: var(--color-warm-white);
-    line-height: 1.7;
+    font-family: var(--font-body);
+    color: var(--color-cream);
+    background-color: var(--color-black);
+    line-height: 1.6;
     overflow-x: hidden;
     font-weight: 300;
 }
@@ -69,50 +71,44 @@ a {
 }
 
 /* ==========================================
-   Navigation - Clean & Minimal
+   Navigation - Minimal & Fixed
    ========================================== */
 .main-nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(253, 251, 247, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(139, 21, 56, 0.1);
-}
-
-.nav-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1.5rem var(--spacing-md);
+    padding: 2rem var(--spacing-md);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95), transparent);
 }
 
 .nav-logo {
-    height: 40px;
+    height: 35px;
     width: auto;
-    opacity: 0.9;
+    filter: invert(1);
+    opacity: 0.95;
     transition: var(--transition-quick);
 }
 
 .nav-logo:hover {
     opacity: 1;
+    transform: scale(1.05);
 }
 
-.nav-menu {
+.nav-links {
     display: flex;
     gap: var(--spacing-lg);
-    list-style: none;
 }
 
 .nav-link {
-    font-size: 0.95rem;
-    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--color-charcoal);
+    color: var(--color-cream);
     font-weight: 400;
     position: relative;
 }
@@ -120,11 +116,11 @@ a {
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: -5px;
     left: 0;
     width: 0;
     height: 1px;
-    background: var(--color-burgundy);
+    background: var(--color-gold);
     transition: width 0.3s ease;
 }
 
@@ -133,99 +129,165 @@ a {
 }
 
 .nav-link:hover {
-    color: var(--color-burgundy);
+    color: var(--color-gold);
 }
 
 /* ==========================================
-   Hero Section - Elegant & Spacious
+   Hero Section - BOLD & DRAMATIC
    ========================================== */
-.hero-section {
-    margin-top: 80px;
-    padding: var(--spacing-xxl) var(--spacing-md) var(--spacing-xl);
-    text-align: center;
-    background: linear-gradient(to bottom, var(--color-cream), var(--color-warm-white));
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-deep-burgundy) 0%, var(--color-forest) 100%);
+    opacity: 0.95;
+}
+
+.hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(139, 21, 56, 0.15) 0%, transparent 50%);
 }
 
 .hero-content {
-    max-width: 800px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: heroFadeIn 1.5s ease-out;
+}
+
+.hero-logo-container {
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-logo {
+    width: clamp(200px, 30vw, 400px);
+    height: auto;
+    margin: 0 auto;
+    filter: invert(1) brightness(0.95);
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--color-cream);
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: var(--spacing-xl);
+    color: var(--color-gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--color-gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* ==========================================
+   Statement Section - Bold Quote
+   ========================================== */
+.statement-section {
+    padding: var(--spacing-xxl) var(--spacing-md);
+    background: var(--color-charcoal);
+    text-align: center;
+}
+
+.statement-text {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-cream);
+    font-style: italic;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-.hero-title {
+/* ==========================================
+   Gallery Section - Your Grid (Kept!)
+   ========================================== */
+.gallery-section {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-black);
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.gallery-title {
     font-family: var(--font-display);
-    font-size: clamp(4rem, 10vw, 7rem);
-    font-weight: 300;
-    color: var(--color-burgundy);
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 700;
+    color: var(--color-cream);
     margin-bottom: var(--spacing-sm);
     letter-spacing: -0.02em;
 }
 
-.hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    color: var(--color-gray);
-    letter-spacing: 0.15em;
+.gallery-subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    font-weight: 400;
+    color: var(--color-gold);
 }
 
-/* ==========================================
-   Container
-   ========================================== */
 .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
 }
 
-.container-narrow {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
-}
-
-/* ==========================================
-   Section Headers
-   ========================================== */
-.section-header {
-    text-align: center;
-    margin-bottom: var(--spacing-lg);
-}
-
-.section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 400;
-    color: var(--color-charcoal);
-    letter-spacing: -0.01em;
-}
-
-/* ==========================================
-   Gallery Section - Keep Original Grid
-   ========================================== */
-.gallery-section {
-    padding: var(--spacing-xl) 0;
-    background: var(--color-warm-white);
-}
-
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
 }
 
 /* ==========================================
-   Artwork Cards - Keep Original Style
+   Artwork Cards - Dark & Dramatic
    ========================================== */
 .artwork-card {
-    background: var(--color-cream);
+    background: var(--color-charcoal);
     border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
     transition: var(--transition-smooth);
-    box-shadow: 0 2px 12px rgba(44, 36, 32, 0.08);
-    border: 1px solid rgba(139, 21, 56, 0.08);
-    animation: fadeInScale 0.6s ease-out backwards;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    animation: fadeInScale 0.8s ease-out backwards;
 }
 
 .artwork-card:nth-child(1) { animation-delay: 0.1s; }
@@ -236,8 +298,8 @@ a {
 .artwork-card:nth-child(6) { animation-delay: 0.6s; }
 
 .artwork-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 24px rgba(139, 21, 56, 0.15);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
     border-color: var(--color-gold);
 }
 
@@ -245,7 +307,7 @@ a {
     position: relative;
     overflow: hidden;
     aspect-ratio: 4 / 5;
-    background: var(--color-light-gray);
+    background: var(--color-charcoal);
 }
 
 .artwork-image {
@@ -256,7 +318,7 @@ a {
 }
 
 .artwork-card:hover .artwork-image {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .artwork-overlay {
@@ -265,7 +327,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(139, 21, 56, 0.9), rgba(45, 80, 22, 0.9));
+    background: linear-gradient(135deg, rgba(74, 14, 31, 0.95), rgba(26, 46, 15, 0.95));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -278,44 +340,44 @@ a {
 }
 
 .view-detail {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    color: var(--color-warm-white);
-    letter-spacing: 0.15em;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-cream);
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border: 1px solid var(--color-gold);
-    background: rgba(201, 168, 117, 0.2);
+    padding: 1rem 2rem;
+    border: 2px solid var(--color-gold);
+    background: transparent;
     transition: var(--transition-quick);
     font-weight: 400;
 }
 
 .view-detail:hover {
     background: var(--color-gold);
-    color: var(--color-burgundy);
+    color: var(--color-black);
 }
 
 .artwork-info {
     padding: var(--spacing-md);
+    background: var(--color-charcoal);
 }
 
 .artwork-title {
     font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-size: 1.4rem;
+    font-weight: 700;
     margin-bottom: var(--spacing-xs);
-    color: var(--color-charcoal);
+    color: var(--color-cream);
 }
 
 .artwork-details {
     font-size: 0.9rem;
-    color: var(--color-gray);
-    letter-spacing: 0.05em;
-    font-weight: 300;
+    color: var(--color-gold);
+    letter-spacing: 0.1em;
 }
 
 /* ==========================================
-   Lightbox - Keep Original Functionality
+   Lightbox - Dramatic
    ========================================== */
 .lightbox {
     position: fixed;
@@ -323,14 +385,13 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(44, 36, 32, 0.97);
+    background: rgba(10, 10, 10, 0.98);
     z-index: 9999;
     display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
-    backdrop-filter: blur(10px);
+    transition: opacity 0.4s ease;
 }
 
 .lightbox.active {
@@ -344,36 +405,35 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: lightboxZoomIn 0.4s ease-out;
+    animation: lightboxZoomIn 0.5s ease-out;
 }
 
 #lightbox-image {
     max-width: 100%;
     max-height: 75vh;
     object-fit: contain;
-    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--color-gold);
+    box-shadow: 0 20px 80px rgba(212, 175, 55, 0.3);
+    border: 3px solid var(--color-gold);
 }
 
 .lightbox-info {
     margin-top: var(--spacing-md);
     text-align: center;
-    color: var(--color-warm-white);
+    color: var(--color-cream);
 }
 
 #lightbox-title {
     font-family: var(--font-display);
-    font-size: 1.8rem;
-    font-weight: 400;
+    font-size: 2rem;
+    font-weight: 700;
     margin-bottom: var(--spacing-xs);
     color: var(--color-gold);
 }
 
 #lightbox-details {
     font-size: 1rem;
-    color: var(--color-warm-white);
-    letter-spacing: 0.05em;
-    opacity: 0.9;
+    color: var(--color-cream);
+    letter-spacing: 0.1em;
 }
 
 .lightbox-close,
@@ -381,159 +441,210 @@ a {
 .lightbox-next {
     position: absolute;
     background: transparent;
-    border: 1px solid rgba(201, 168, 117, 0.5);
+    border: 2px solid var(--color-gold);
     color: var(--color-gold);
     font-size: 2rem;
     font-weight: 300;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: var(--transition-quick);
-    border-radius: 50%;
 }
 
 .lightbox-close:hover,
 .lightbox-prev:hover,
 .lightbox-next:hover {
     background: var(--color-gold);
-    color: var(--color-burgundy);
-    border-color: var(--color-gold);
+    color: var(--color-black);
 }
 
 .lightbox-close {
-    top: 20px;
-    right: 20px;
-    font-size: 2.5rem;
+    top: 30px;
+    right: 30px;
+    font-size: 3rem;
     line-height: 1;
 }
 
 .lightbox-prev {
-    left: 20px;
+    left: 30px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .lightbox-next {
-    right: 20px;
+    right: 30px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 /* ==========================================
-   About Section - Elegant & Refined
+   About Section - Editorial
    ========================================== */
 .about-section {
     padding: var(--spacing-xxl) 0;
-    background: var(--color-cream);
+    background: var(--color-charcoal);
 }
 
-.about-content {
-    margin-top: var(--spacing-lg);
+.about-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
 }
 
-.about-text {
+.about-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 700;
+    line-height: 0.95;
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-text p {
     font-size: 1.2rem;
-    line-height: 1.9;
+    line-height: 1.8;
     margin-bottom: var(--spacing-md);
-    color: var(--color-charcoal);
+    color: var(--color-cream);
     font-weight: 300;
 }
 
 .replace-note {
     font-size: 0.9rem;
     font-style: italic;
-    color: var(--color-gray);
+    color: var(--color-gold);
     margin-top: var(--spacing-lg);
     padding: var(--spacing-sm);
-    background: rgba(201, 168, 117, 0.1);
-    border-left: 2px solid var(--color-gold);
+    border-left: 3px solid var(--color-gold);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.about-accent {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, var(--color-burgundy), var(--color-pine));
+    border-radius: 4px;
 }
 
 /* ==========================================
-   Contact Section - Clean & Simple
+   Contact Section - Bold
    ========================================== */
 .contact-section {
-    padding: var(--spacing-xxl) 0;
-    background: var(--color-warm-white);
-}
-
-.contact-content {
-    margin-top: var(--spacing-lg);
+    padding: var(--spacing-xxl) var(--spacing-md);
+    background: var(--color-black);
     text-align: center;
 }
 
-.contact-intro {
-    font-size: 1.1rem;
-    color: var(--color-gray);
-    margin-bottom: var(--spacing-lg);
-    font-weight: 300;
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.contact-links {
+.contact-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 700;
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-xl);
+}
+
+.contact-info {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
-    align-items: center;
+    gap: var(--spacing-lg);
 }
 
-.contact-link {
+.contact-item {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xs);
     padding: var(--spacing-md);
-    border: 1px solid rgba(139, 21, 56, 0.15);
-    background: rgba(253, 251, 247, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    background: var(--color-charcoal);
     transition: var(--transition-quick);
-    min-width: 300px;
-    text-align: center;
 }
 
-.contact-link:hover {
-    border-color: var(--color-burgundy);
-    background: var(--color-cream);
-    transform: translateY(-2px);
+.contact-item:hover {
+    border-color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.05);
+    transform: translateX(10px);
 }
 
 .contact-label {
     font-size: 0.85rem;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-gray);
-    font-weight: 400;
+    color: var(--color-gold);
 }
 
 .contact-value {
-    font-size: 1.1rem;
-    color: var(--color-burgundy);
+    font-size: 1.5rem;
+    color: var(--color-cream);
     font-weight: 400;
 }
 
+.contact-value:hover {
+    color: var(--color-gold);
+}
+
 /* ==========================================
-   Footer - Minimal
+   Footer
    ========================================== */
 .site-footer {
-    background: var(--color-charcoal);
+    background: var(--color-black);
     color: var(--color-cream);
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .footer-content {
     text-align: center;
 }
 
-.footer-text {
+.footer-content p {
     font-size: 0.85rem;
     letter-spacing: 0.1em;
-    opacity: 0.8;
-    font-weight: 300;
+    opacity: 0.7;
 }
 
 /* ==========================================
    Animations
    ========================================== */
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes scrollPulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
 @keyframes fadeInScale {
     from {
         opacity: 0;
@@ -559,13 +670,20 @@ a {
 /* ==========================================
    Responsive Design
    ========================================== */
+@media (max-width: 1024px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
 @media (max-width: 768px) {
-    .nav-menu {
+    .nav-links {
         gap: var(--spacing-md);
     }
     
     .nav-link {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
     
     .gallery-grid {
@@ -573,30 +691,17 @@ a {
         gap: var(--spacing-sm);
     }
     
-    .hero-section {
-        padding: var(--spacing-xl) var(--spacing-md);
-    }
-    
-    .about-section,
-    .contact-section {
-        padding: var(--spacing-xl) 0;
-    }
-    
     .lightbox-prev,
     .lightbox-next {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         font-size: 1.5rem;
     }
     
     .lightbox-close {
-        width: 40px;
-        height: 40px;
-        font-size: 2rem;
-    }
-    
-    .contact-link {
-        min-width: 250px;
+        width: 50px;
+        height: 50px;
+        font-size: 2.5rem;
     }
 }
 
@@ -605,7 +710,7 @@ a {
         grid-template-columns: 1fr;
     }
     
-    .nav-menu {
+    .nav-links {
         gap: var(--spacing-sm);
     }
     
