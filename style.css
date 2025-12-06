@@ -217,6 +217,7 @@ a {
     height: 60px;
     background: linear-gradient(to bottom, var(--color-gold), transparent);
     animation: scrollPulse 2s ease-in-out infinite;
+    opacity: 1;
 }
 
 /* ==========================================
@@ -237,6 +238,15 @@ a {
     font-style: italic;
     max-width: 1000px;
     margin: 0 auto;
+}
+
+.quote-attribution {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--color-gold);
+    margin-top: var(--spacing-md);
+    letter-spacing: 0.1em;
 }
 
 /* ==========================================
@@ -641,10 +651,12 @@ a {
 
 @keyframes scrollPulse {
     0%, 100% {
-        opacity: 0.5;
+        opacity: 0.8;
+        transform: translateY(0);
     }
     50% {
         opacity: 1;
+        transform: translateY(10px);
     }
 }
 
