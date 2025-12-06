@@ -178,7 +178,7 @@ a {
 }
 
 .hero-logo-container {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
 }
 
 .hero-logo {
