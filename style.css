@@ -51,11 +51,13 @@ html {
 
 body {
     font-family: var(--font-body);
-    color: var(--color-cream);
-    background-color: var(--color-black);
+    color: #F5F1E8;
+    background-color: #0A0A0A;
+    background: #0A0A0A;
     line-height: 1.6;
     overflow-x: hidden;
     font-weight: 300;
+    min-height: 100vh;
 }
 
 img {
@@ -142,6 +144,7 @@ a {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background: linear-gradient(135deg, #4A0E1F 0%, #1A2E0F 100%);
 }
 
 .hero-background {
@@ -150,8 +153,8 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, var(--color-deep-burgundy) 0%, var(--color-forest) 100%);
-    opacity: 0.95;
+    background: linear-gradient(135deg, rgba(74, 14, 31, 0.95) 0%, rgba(26, 46, 15, 0.95) 100%);
+    opacity: 1;
 }
 
 .hero-background::after {
