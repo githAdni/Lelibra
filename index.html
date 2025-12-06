@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Gallery - Art Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <h1 class="site-title">Your Artist Name</h1>
+            <p class="site-subtitle">Canvas Works & Original Art</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2>About the Artist</h2>
+                <p>Welcome to my gallery. Here you'll find a collection of my canvas works, each piece telling its own story through color, texture, and form. I'm passionate about creating art that resonates and inspires.</p>
+                <p class="replace-note">[Replace this text with your own artist bio and statement]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="gallery-title">Gallery</h2>
+            
+            <div class="gallery-grid">
+                <!-- Artwork 1 -->
+                <div class="artwork-card" data-artwork="1">
+                    <div class="artwork-image-wrapper">
+                        <img src="images/artwork-1.jpg" alt="Artwork Title 1" class="artwork-image">
+                        <div class="artwork-overlay">
+                            <span class="view-detail">View</span>
+                        </div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Artwork Title 1</h3>
+                        <p class="artwork-details">Canvas, 2024 • 24" × 36"</p>
+                    </div>
+                </div>
+
+                <!-- Artwork 2 -->
+                <div class="artwork-card" data-artwork="2">
+                    <div class="artwork-image-wrapper">
+                        <img src="images/artwork-2.jpg" alt="Artwork Title 2" class="artwork-image">
+                        <div class="artwork-overlay">
+                            <span class="view-detail">View</span>
+                        </div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Artwork Title 2</h3>
+                        <p class="artwork-details">Canvas, 2024 • 18" × 24"</p>
+                    </div>
+                </div>
+
+                <!-- Artwork 3 -->
+                <div class="artwork-card" data-artwork="3">
+                    <div class="artwork-image-wrapper">
+                        <img src="images/artwork-3.jpg" alt="Artwork Title 3" class="artwork-image">
+                        <div class="artwork-overlay">
+                            <span class="view-detail">View</span>
+                        </div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Artwork Title 3</h3>
+                        <p class="artwork-details">Canvas, 2024 • 30" × 40"</p>
+                    </div>
+                </div>
+
+                <!-- Artwork 4 -->
+                <div class="artwork-card" data-artwork="4">
+                    <div class="artwork-image-wrapper">
+                        <img src="images/artwork-4.jpg" alt="Artwork Title 4" class="artwork-image">
+                        <div class="artwork-overlay">
+                            <span class="view-detail">View</span>
+                        </div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Artwork Title 4</h3>
+                        <p class="artwork-details">Canvas, 2024 • 20" × 20"</p>
+                    </div>
+                </div>
+
+                <!-- Artwork 5 -->
+                <div class="artwork-card" data-artwork="5">
+                    <div class="artwork-image-wrapper">
+                        <img src="images/artwork-5.jpg" alt="Artwork Title 5" class="artwork-image">
+                        <div class="artwork-overlay">
+                            <span class="view-detail">View</span>
+                        </div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Artwork Title 5</h3>
+                        <p class="artwork-details">Canvas, 2024 • 16" × 20"</p>
+                    </div>
+                </div>
+
+                <!-- Artwork 6 -->
+                <div class="artwork-card" data-artwork="6">
+                    <div class="artwork-image-wrapper">
+                        <img src="images/artwork-6.jpg" alt="Artwork Title 6" class="artwork-image">
+                        <div class="artwork-overlay">
+                            <span class="view-detail">View</span>
+                        </div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Artwork Title 6</h3>
+                        <p class="artwork-details">Canvas, 2024 • 24" × 30"</p>
+                    </div>
+                </div>
+
+                <!-- Add more artwork cards as needed - just copy and paste this structure -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p class="contact-text">Interested in my work? I'd love to hear from you.</p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-link">your.email@example.com</a>
+                <!-- Optional: Add social media links -->
+                <!-- <a href="https://instagram.com/yourhandle" class="contact-link">Instagram</a> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Your Artist Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-prev" id="lightbox-prev">‹</button>
+        <button class="lightbox-next" id="lightbox-next">›</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-image">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-details"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
