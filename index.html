@@ -3,42 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lelibra - Art Gallery</title>
+    <title>Lelibra</title>
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Cormorant:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="site-header">
-        <div class="header-content">
-            <div class="logo-container">
-                <img src="images/logo.png" alt="Lelibra Logo" class="site-logo">
-            </div>
-            <h1 class="site-title">Lelibra</h1>
-            <p class="site-subtitle">Canvas Works & Original Art</p>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#" class="logo-link">
+                <img src="images/logo.png" alt="Lelibra" class="nav-logo">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
-        <div class="header-decoration"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Lelibra</h1>
+            <p class="hero-subtitle">Original Canvas Works</p>
+        </div>
     </header>
 
-    <!-- About Section -->
-    <section class="about-section">
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
         <div class="container">
-            <div class="about-content">
-                <h2>About the Artist</h2>
-                <p>Welcome to Lelibra's gallery. Here you'll find a collection of canvas works, each piece telling its own story through color, texture, and form. Art that resonates and inspires, created with passion and dedication.</p>
-                <p class="replace-note">[Replace this text with your own artist bio and statement]</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Grid -->
-    <section class="gallery-section">
-        <div class="container">
-            <h2 class="gallery-title">Gallery</h2>
-            
             <!-- This gallery grid will be automatically populated by JavaScript -->
             <div class="gallery-grid" id="gallery-grid">
                 <!-- Artwork cards will be dynamically inserted here -->
@@ -46,27 +43,38 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container-narrow">
+            <div class="section-header">
+                <h2 class="section-title">About</h2>
+            </div>
+            <div class="about-content">
+                <p class="about-text">Welcome to my gallery. Each canvas tells its own story through color, texture, and form. I create art that resonates and inspires, working with passion and dedication to bring beauty into the world.</p>
+                <p class="about-text">My work explores the intersection of emotion and expression, using the canvas as a medium for connection and contemplation.</p>
+                <p class="replace-note">[Customize this section with your own artist statement]</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <p class="contact-text">Interested in my work? I'd love to hear from you.</p>
-            <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="contact-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                    your.email@example.com
-                </a>
-                <a href="https://www.instagram.com/lelibra_/" class="contact-link" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                    Instagram
-                </a>
+    <section class="contact-section" id="contact">
+        <div class="container-narrow">
+            <div class="section-header">
+                <h2 class="section-title">Get in Touch</h2>
+            </div>
+            <div class="contact-content">
+                <p class="contact-intro">For inquiries about available works or commissions:</p>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com" class="contact-link">
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">your.email@example.com</span>
+                    </a>
+                    <a href="https://www.instagram.com/lelibra_/" class="contact-link" target="_blank">
+                        <span class="contact-label">Instagram</span>
+                        <span class="contact-value">@lelibra_</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -75,8 +83,7 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <img src="images/logo.png" alt="Lelibra" class="footer-logo">
-                <p>&copy; 2024 Lelibra. All rights reserved.</p>
+                <p class="footer-text">&copy; 2024 Lelibra. All rights reserved.</p>
             </div>
         </div>
     </footer>
