@@ -10,44 +10,44 @@
 
 const ARTWORK_INFO = {
     1: {
-        title: "Untitled 1",
-        date: "2024",
-        materials: "Acrylic on Canvas"
+        title: "Allegoria della Vittoria",
+        date: "2025",
+        materials: "Oil on Canvas"
     },
     2: {
-        title: "Untitled 2",
-        date: "2024",
+        title: "La Dama con l'ermellino",
+        date: "2025",
         materials: "Oil on Canvas"
     },
     3: {
-        title: "Untitled 3",
-        date: "2024",
-        materials: "Mixed Media on Canvas"
+        title: "Field of sunflowers",
+        date: "2025",
+        materials: "Oil on Canvas"
     },
     4: {
-        title: "Untitled 4",
+        title: "Salina",
         date: "2024",
-        materials: "Acrylic on Canvas"
+        materials: "Watercolor on Paper"
     },
     5: {
-        title: "Untitled 5",
+        title: "Green Moro",
         date: "2024",
         materials: "Oil on Canvas"
     },
     6: {
-        title: "Untitled 6",
+        title: "One st.Valentine day",
         date: "2024",
-        materials: "Acrylic on Canvas"
+        materials: "Oil on Canvas"
     },
     7: {
-        title: "Untitled 7",
+        title: "Cenacolo",
         date: "2024",
         materials: "Oil on Canvas"
     },
     8: {
-        title: "Untitled 8",
+        title: "Poiseidon",
         date: "2024",
-        materials: "Mixed Media on Canvas"
+        materials: "Pencil on Paper"
     },
     9: {
         title: "Untitled 9",
