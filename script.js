@@ -1,27 +1,78 @@
 // ==========================================
-// AUTOMATIC GALLERY LOADER
+// AUTOMATIC GALLERY LOADER WITH CUSTOM INFO
 // ==========================================
-// This script automatically detects how many images you have
-// Just upload images named: artwork-1.jpg, artwork-2.jpg, etc.
-// The gallery will automatically display them all!
 
-// Configuration - Change these to match your setup
+// ==========================================
+// 🎨 CUSTOMIZE YOUR ARTWORK INFO HERE
+// ==========================================
+// Add title, date, and materials for each artwork
+// Just change the number to match your image (artwork-1.jpg = artwork 1, etc.)
+
+const ARTWORK_INFO = {
+    1: {
+        title: "Untitled 1",
+        date: "2024",
+        materials: "Acrylic on Canvas"
+    },
+    2: {
+        title: "Untitled 2",
+        date: "2024",
+        materials: "Oil on Canvas"
+    },
+    3: {
+        title: "Untitled 3",
+        date: "2024",
+        materials: "Mixed Media on Canvas"
+    },
+    4: {
+        title: "Untitled 4",
+        date: "2024",
+        materials: "Acrylic on Canvas"
+    },
+    5: {
+        title: "Untitled 5",
+        date: "2024",
+        materials: "Oil on Canvas"
+    },
+    6: {
+        title: "Untitled 6",
+        date: "2024",
+        materials: "Acrylic on Canvas"
+    },
+    7: {
+        title: "Untitled 7",
+        date: "2024",
+        materials: "Oil on Canvas"
+    },
+    8: {
+        title: "Untitled 8",
+        date: "2024",
+        materials: "Mixed Media on Canvas"
+    },
+    9: {
+        title: "Untitled 9",
+        date: "2024",
+        materials: "Acrylic on Canvas"
+    },
+    10: {
+        title: "Untitled 10",
+        date: "2024",
+        materials: "Oil on Canvas"
+    },
+    11: {
+        title: "Untitled 11",
+        date: "2024",
+        materials: "Acrylic on Canvas"
+    },
+    // Add more artworks as needed...
+    // Just copy the pattern above!
+};
+
+// Configuration
 const CONFIG = {
-    // How many artworks to check for (set this high enough to cover all your images)
     maxArtworks: 100,
-    
-    // Image folder path
     imagePath: 'images/',
-    
-    // Supported image formats
-    imageFormats: ['jpg', 'jpeg', 'png', 'webp'],
-    
-    // Default year for artworks
-    defaultYear: '2024',
-    
-    // Default artwork info (you can customize these later in the code below)
-    defaultTitle: 'Untitled',
-    defaultSize: 'Canvas'
+    imageFormats: ['jpg', 'jpeg', 'png', 'webp']
 };
 
 // Store detected artworks
@@ -34,30 +85,32 @@ let currentArtworkIndex = 0;
 async function detectArtworks() {
     const detectedArtworks = [];
     
-    // Try to load images from artwork-1 up to maxArtworks
     for (let i = 1; i <= CONFIG.maxArtworks; i++) {
         let imageFound = false;
         
-        // Try each image format
         for (const format of CONFIG.imageFormats) {
             const imagePath = `${CONFIG.imagePath}artwork-${i}.${format}`;
             
-            // Check if image exists
             if (await imageExists(imagePath)) {
+                // Get custom info or use defaults
+                const info = ARTWORK_INFO[i] || {
+                    title: `Artwork ${i}`,
+                    date: '2024',
+                    materials: 'Canvas'
+                };
+                
                 detectedArtworks.push({
                     id: i,
                     image: imagePath,
-                    title: `Artwork ${i}`,
-                    details: `${CONFIG.defaultSize}, ${CONFIG.defaultYear}`,
-                    alt: `Artwork ${i}`
+                    title: info.title,
+                    details: `${info.materials} • ${info.date}`,
+                    alt: info.title
                 });
                 imageFound = true;
-                break; // Found the image, no need to check other formats
+                break;
             }
         }
         
-        // If we didn't find an image with this number, stop checking
-        // (assumes artworks are numbered sequentially)
         if (!imageFound && detectedArtworks.length > 0) {
             break;
         }
@@ -84,9 +137,9 @@ function buildGallery(artworksData) {
     
     if (artworksData.length === 0) {
         galleryGrid.innerHTML = `
-            <div style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem;">
-                <h3 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem;">No Artworks Found</h3>
-                <p style="color: var(--color-secondary); font-size: 1.1rem;">
+            <div style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem; color: #F5F1E8;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem;">No Artworks Found</h3>
+                <p style="color: #D4AF37; font-size: 1.1rem;">
                     Upload your artwork photos to the <strong>images/</strong> folder.<br>
                     Name them: <strong>artwork-1.jpg</strong>, <strong>artwork-2.jpg</strong>, etc.
                 </p>
@@ -95,10 +148,8 @@ function buildGallery(artworksData) {
         return;
     }
     
-    // Clear existing content
     galleryGrid.innerHTML = '';
     
-    // Create artwork cards
     artworksData.forEach((artwork, index) => {
         const card = document.createElement('div');
         card.className = 'artwork-card';
@@ -118,7 +169,6 @@ function buildGallery(artworksData) {
             </div>
         `;
         
-        // Add click event to open lightbox
         card.addEventListener('click', () => {
             currentArtworkIndex = index;
             openLightbox();
@@ -167,18 +217,14 @@ function showNext() {
 // INITIALIZE
 // ==========================================
 document.addEventListener('DOMContentLoaded', async function() {
-    // Show loading message
     const galleryGrid = document.getElementById('gallery-grid');
     galleryGrid.innerHTML = `
         <div style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem;">
-            <p style="color: var(--color-secondary); font-size: 1.2rem;">Loading gallery...</p>
+            <p style="color: #D4AF37; font-size: 1.2rem;">Loading gallery...</p>
         </div>
     `;
     
-    // Detect and load artworks
     artworks = await detectArtworks();
-    
-    // Build the gallery
     buildGallery(artworks);
     
     // Set up lightbox controls
@@ -188,26 +234,23 @@ document.addEventListener('DOMContentLoaded', async function() {
     const lightboxNext = document.getElementById('lightbox-next');
     
     lightboxClose.addEventListener('click', closeLightbox);
-    
-    lightboxPrev.addEventListener('click', function(e) {
+    lightboxPrev.addEventListener('click', (e) => {
         e.stopPropagation();
         showPrevious();
     });
-    
-    lightboxNext.addEventListener('click', function(e) {
+    lightboxNext.addEventListener('click', (e) => {
         e.stopPropagation();
         showNext();
     });
     
-    // Close lightbox when clicking outside the image
-    lightbox.addEventListener('click', function(e) {
+    lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
             closeLightbox();
         }
     });
     
     // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('active')) return;
         
         switch(e.key) {
@@ -223,7 +266,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     });
     
-    // Smooth scroll for internal links
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -236,37 +279,4 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
         });
     });
-    
-    // Add subtle parallax effect to header
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const header = document.querySelector('.site-header');
-        if (header) {
-            header.style.transform = `translateY(${scrolled * 0.5}px)`;
-            header.style.opacity = Math.max(0.3, 1 - (scrolled / 500));
-        }
-    });
 });
-
-// ==========================================
-// OPTIONAL: CUSTOMIZE ARTWORK INFO
-// ==========================================
-// If you want to add custom titles, sizes, or years for specific artworks,
-// you can do it here. This runs after artworks are detected.
-//
-// Example:
-// window.addEventListener('DOMContentLoaded', function() {
-//     setTimeout(() => {
-//         // Wait a bit for artworks to load, then customize
-//         if (artworks.length > 0) {
-//             artworks[0].title = "Sunset Dreams";
-//             artworks[0].details = "Acrylic on Canvas, 2024 • 24\" × 36\"";
-//             
-//             artworks[1].title = "Ocean Waves";
-//             artworks[1].details = "Oil on Canvas, 2023 • 30\" × 40\"";
-//             
-//             // Rebuild gallery with new info
-//             buildGallery(artworks);
-//         }
-//     }, 1000);
-// });
