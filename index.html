@@ -166,6 +166,37 @@
         </div>
     </div>
 
+    <!-- Contact Form Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" id="contactModalClose">&times;</button>
+            <h2 class="contact-modal-title" id="contactFormTitle">Contact</h2>
+            <p class="contact-modal-subtitle" id="contactFormSubtitle"></p>
+            <form class="contact-modal-form" id="contactFormElement" onsubmit="submitContactForm(event)">
+                <input type="hidden" id="inquiryType" name="inquiryType">
+                <input type="hidden" id="artworkTitle" name="artworkTitle">
+                <input type="hidden" id="artworkPrice" name="artworkPrice">
+                
+                <div class="form-group">
+                    <label for="contactName">Your Name *</label>
+                    <input type="text" id="contactName" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactEmail">Your Email *</label>
+                    <input type="email" id="contactEmail" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="messageField">Message *</label>
+                    <textarea id="messageField" name="message" rows="6" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit-contact">Send Message</button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

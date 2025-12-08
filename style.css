@@ -975,3 +975,212 @@ a {
         width: 100%;
     }
 }
+
+/* ==========================================
+   Language Switcher
+   ========================================== */
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1.5rem;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: #F5F1E8;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.lang-btn:hover {
+    opacity: 1;
+    color: #D4AF37;
+}
+
+.lang-btn.active {
+    opacity: 1;
+    color: #D4AF37;
+    border-bottom: 2px solid #D4AF37;
+}
+
+.lang-separator {
+    color: #F5F1E8;
+    opacity: 0.4;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}
+
+/* ==========================================
+   Contact Form Modal
+   ========================================== */
+
+.contact-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.contact-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-modal-content {
+    background: #1A1A1A;
+    border: 2px solid #D4AF37;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    padding: 2.5rem;
+    position: relative;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #F5F1E8;
+    font-size: 2rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-modal-close:hover {
+    opacity: 1;
+    color: #D4AF37;
+}
+
+.contact-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #F5F1E8;
+    margin-bottom: 0.5rem;
+}
+
+.contact-modal-subtitle {
+    color: #D4AF37;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.contact-modal-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-modal-form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #D4AF37;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.contact-modal-form input,
+.contact-modal-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+    color: #F5F1E8;
+    font-size: 1rem;
+    font-family: 'Work Sans', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.contact-modal-form input:focus,
+.contact-modal-form textarea:focus {
+    outline: none;
+    border-color: #D4AF37;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.contact-modal-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.btn-submit-contact {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: #D4AF37;
+    color: #0A0A0A;
+    border: 2px solid #D4AF37;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Work Sans', sans-serif;
+    margin-top: 1rem;
+}
+
+.btn-submit-contact:hover {
+    background: transparent;
+    color: #D4AF37;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .contact-modal {
+        padding: 1rem;
+    }
+    
+    .contact-modal-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .contact-modal-title {
+        font-size: 1.5rem;
+    }
+}
