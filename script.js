@@ -15,12 +15,12 @@ const ARTWORK_INFO = {
         materials: "Oil on Canvas"
     },
     2: {
-        title: "La Dama con l'ermellino",
+        title: "La Dama con l'Ermellino",
         date: "2025",
         materials: "Oil on Canvas"
     },
     3: {
-        title: "Field of sunflowers",
+        title: "Field of Sunflowers",
         date: "2025",
         materials: "Oil on Canvas"
     },
@@ -35,7 +35,7 @@ const ARTWORK_INFO = {
         materials: "Oil on Canvas"
     },
     6: {
-        title: "One st.Valentine day",
+        title: "One st.Valentine Day",
         date: "2024",
         materials: "Oil on Canvas"
     },
