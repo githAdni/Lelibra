@@ -4,19 +4,110 @@
 
 // Artwork Info
 const ARTWORK_INFO = {
-    1: { title: "Allegoria della Vittoria", date: "2025", materials: "Oil on Canvas", price: "$850", available: false },
-    2: { title: "La Dama con l'Ermellino", date: "2025", materials: "Oil on Canvas", price: "$950", available: true },
-    3: { title: "Field of Sunflowers", date: "2025", materials: "Oil on Canvas", price: "$1,200", available: true },
-    4: { title: "Salina", date: "2024", materials: "Watercolor on Paper", price: "$450", available: true },
-    5: { title: "Green Moro", date: "2024", materials: "Oil on Canvas", price: "$800", available: true },
-    6: { title: "One st.Valentine Day", date: "2024", materials: "Oil on Canvas", price: "$750", available: true },
-    7: { title: "Cenacolo", date: "2024", materials: "Oil on Canvas", price: "$1,100", available: true },
-    8: { title: "Poiseidon", date: "2024", materials: "Pencil on Paper", price: "$300", available: true },
-    9: { title: "Dillo coi Fiori #1", date: "2024", materials: "Watercolor on Paper", price: "$400", available: true },
-    10: { title: "The Creator", date: "2024", materials: "Oil on Canvas", price: "$900", available: true },
-    11: { title: "Famiglia", date: "2024", materials: "Oil on Canvas", price: "$850", available: false },
-    12: { title: "Dillo coi Fiori #2", date: "2024", materials: "Watercolor on Paper", price: "$400", available: true },
-    13: { title: "Dillo coi Fiori #3", date: "2024", materials: "Watercolor on Paper", price: "$400", available: true }
+    1: { 
+        title: "Allegoria della Vittoria", 
+        date: "2025", 
+        materials: "Oil on Canvas", 
+        dimensions: '24" × 36"',
+        price: "$850", 
+        available: false 
+    },
+    2: { 
+        title: "La Dama con l'Ermellino", 
+        date: "2025", 
+        materials: "Oil on Canvas", 
+        dimensions: '20" × 30"',
+        price: "$950", 
+        available: true 
+    },
+    3: { 
+        title: "Field of Sunflowers", 
+        date: "2025", 
+        materials: "Oil on Canvas", 
+        dimensions: '30" × 40"',
+        price: "$1,200", 
+        available: true 
+    },
+    4: { 
+        title: "Salina", 
+        date: "2024", 
+        materials: "Watercolor on Paper", 
+        dimensions: '11" × 14"',
+        price: "$450", 
+        available: true 
+    },
+    5: { 
+        title: "Green Moro", 
+        date: "2024", 
+        materials: "Oil on Canvas", 
+        dimensions: '24" × 36"',
+        price: "$800", 
+        available: true 
+    },
+    6: { 
+        title: "One st.Valentine Day", 
+        date: "2024", 
+        materials: "Oil on Canvas", 
+        dimensions: '20" × 24"',
+        price: "$750", 
+        available: true 
+    },
+    7: { 
+        title: "Cenacolo", 
+        date: "2024", 
+        materials: "Oil on Canvas", 
+        dimensions: '36" × 48"',
+        price: "$1,100", 
+        available: true 
+    },
+    8: { 
+        title: "Poiseidon", 
+        date: "2024", 
+        materials: "Pencil on Paper", 
+        dimensions: '8" × 10"',
+        price: "$300", 
+        available: true 
+    },
+    9: { 
+        title: "Dillo coi Fiori #1", 
+        date: "2024", 
+        materials: "Watercolor on Paper", 
+        dimensions: '9" × 12"',
+        price: "$400", 
+        available: true 
+    },
+    10: { 
+        title: "The Creator", 
+        date: "2024", 
+        materials: "Oil on Canvas", 
+        dimensions: '30" × 40"',
+        price: "$900", 
+        available: true 
+    },
+    11: { 
+        title: "Famiglia", 
+        date: "2024", 
+        materials: "Oil on Canvas", 
+        dimensions: '24" × 36"',
+        price: "$850", 
+        available: false 
+    },
+    12: { 
+        title: "Dillo coi Fiori #2", 
+        date: "2024", 
+        materials: "Watercolor on Paper", 
+        dimensions: '9" × 12"',
+        price: "$400", 
+        available: true 
+    },
+    13: { 
+        title: "Dillo coi Fiori #3", 
+        date: "2024", 
+        materials: "Watercolor on Paper", 
+        dimensions: '9" × 12"',
+        price: "$400", 
+        available: true 
+    }
 };
 
 const CONFIG = { maxArtworks: 100, imagePath: 'images/', imageFormats: ['jpg', 'jpeg', 'png', 'webp'] };
@@ -31,8 +122,31 @@ async function detectArtworks() {
         for (const format of CONFIG.imageFormats) {
             const imagePath = `${CONFIG.imagePath}artwork-${i}.${format}`;
             if (await imageExists(imagePath)) {
-                const info = ARTWORK_INFO[i] || { title: `Artwork ${i}`, date: '2024', materials: 'Canvas', price: 'Contact for Price', available: true };
-                detectedArtworks.push({ id: i, image: imagePath, title: info.title, details: `${info.materials} • ${info.date}`, price: info.price, available: info.available, alt: info.title });
+                const info = ARTWORK_INFO[i] || { 
+                    title: `Artwork ${i}`, 
+                    date: '2024', 
+                    materials: 'Canvas', 
+                    dimensions: '',
+                    price: 'Contact for Price', 
+                    available: true 
+                };
+                
+                // Build details string with dimensions
+                let details = info.materials;
+                if (info.dimensions) {
+                    details += ` • ${info.dimensions}`;
+                }
+                details += ` • ${info.date}`;
+                
+                detectedArtworks.push({ 
+                    id: i, 
+                    image: imagePath, 
+                    title: info.title, 
+                    details: details, 
+                    price: info.price, 
+                    available: info.available, 
+                    alt: info.title 
+                });
                 imageFound = true;
                 break;
             }
