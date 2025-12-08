@@ -73,8 +73,7 @@ const ARTWORK_INFO = {
         title: "Dillo coi Fiori #3",
         date: "2024",
         materials: "Watercolor on Paper"
-    }
-    
+    }   
 };
 
 // Configuration
