@@ -13,7 +13,7 @@ const ARTWORK_INFO = {
     8: { title: "Poiseidon", date: "2024", materials: "Pencil on Paper", price: "$300", available: true },
     9: { title: "Dillo coi Fiori #1", date: "2024", materials: "Watercolor on Paper", price: "$400", available: true },
     10: { title: "The Creator", date: "2024", materials: "Oil on Canvas", price: "$900", available: true },
-    11: { title: "Famiglia", date: "2024", materials: "Oil on Canvas", price: "$850", available: true },
+    11: { title: "Famiglia", date: "2024", materials: "Oil on Canvas", price: "$850", available: false },
     12: { title: "Dillo coi Fiori #2", date: "2024", materials: "Watercolor on Paper", price: "$400", available: true },
     13: { title: "Dillo coi Fiori #3", date: "2024", materials: "Watercolor on Paper", price: "$400", available: true }
 };
