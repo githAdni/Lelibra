@@ -5,100 +5,71 @@
 // ==========================================
 // 🎨 CUSTOMIZE YOUR ARTWORK INFO HERE
 // ==========================================
-// Add title, date, and materials for each artwork
-// Just change the number to match your image (artwork-1.jpg = artwork 1, etc.)
-
 const ARTWORK_INFO = {
     1: {
         title: "Allegoria della Vittoria",
         date: "2025",
-        materials: "Oil on Canvas",
-        price: "$850",
-        available: true
+        materials: "Oil on Canvas"
     },
     2: {
         title: "La Dama con l'Ermellino",
         date: "2025",
-        materials: "Oil on Canvas",
-        price: "$950",
-        available: true
+        materials: "Oil on Canvas"
     },
     3: {
         title: "Field of Sunflowers",
         date: "2025",
-        materials: "Oil on Canvas",
-        price: "$1,200",
-        available: true
+        materials: "Oil on Canvas"
     },
     4: {
         title: "Salina",
         date: "2024",
-        materials: "Watercolor on Paper",
-        price: "$450",
-        available: true
+        materials: "Watercolor on Paper"
     },
     5: {
         title: "Green Moro",
         date: "2024",
-        materials: "Oil on Canvas",
-        price: "$800",
-        available: true
+        materials: "Oil on Canvas"
     },
     6: {
         title: "One st.Valentine Day",
         date: "2024",
-        materials: "Oil on Canvas",
-        price: "$750",
-        available: true
+        materials: "Oil on Canvas"
     },
     7: {
         title: "Cenacolo",
         date: "2024",
-        materials: "Oil on Canvas",
-        price: "$1,100",
-        available: true
+        materials: "Oil on Canvas"
     },
     8: {
         title: "Poiseidon",
         date: "2024",
-        materials: "Pencil on Paper",
-        price: "$300",
-        available: true
+        materials: "Pencil on Paper"
     },
     9: {
         title: "Dillo coi Fiori #1",
         date: "2024",
-        materials: "Watercolor on Paper",
-        price: "$400",
-        available: true
+        materials: "Watercolor on Paper"
     },
     10: {
         title: "The Creator",
         date: "2024",
-        materials: "Oil on Canvas",
-        price: "$900",
-        available: true
+        materials: "Oil on Canvas"
     },
     11: {
         title: "Famiglia",
         date: "2024",
-        materials: "Oil on Canvas",
-        price: "$850",
-        available: true
+        materials: "Oil on Canvas"
     },
     12: {
         title: "Dillo coi Fiori #2",
         date: "2024",
-        materials: "Watercolor on Paper",
-        price: "$400",
-        available: true
+        materials: "Watercolor on Paper"
     },
     13: {
         title: "Dillo coi Fiori #3",
         date: "2024",
-        materials: "Watercolor on Paper",
-        price: "$400",
-        available: true
+        materials: "Watercolor on Paper"
     }
 };
 
@@ -126,13 +97,10 @@ async function detectArtworks() {
             const imagePath = `${CONFIG.imagePath}artwork-${i}.${format}`;
             
             if (await imageExists(imagePath)) {
-                // Get custom info or use defaults
                 const info = ARTWORK_INFO[i] || {
                     title: `Artwork ${i}`,
                     date: '2024',
-                    materials: 'Canvas',
-                    price: 'Contact for Price',
-                    available: true
+                    materials: 'Canvas'
                 };
                 
                 detectedArtworks.push({
@@ -140,8 +108,6 @@ async function detectArtworks() {
                     image: imagePath,
                     title: info.title,
                     details: `${info.materials} • ${info.date}`,
-                    price: info.price,
-                    available: info.available,
                     alt: info.title
                 });
                 imageFound = true;
@@ -194,54 +160,18 @@ function buildGallery(artworksData) {
         card.dataset.artwork = artwork.id;
         card.style.animationDelay = `${0.1 * (index + 1)}s`;
         
-        const availabilityBadge = artwork.available 
-            ? '<span class="availability-badge available">Available</span>' 
-            : '<span class="availability-badge sold">Sold</span>';
-        
         card.innerHTML = `
             <div class="artwork-image-wrapper">
                 <img src="${artwork.image}" alt="${artwork.alt}" class="artwork-image" loading="lazy">
                 <div class="artwork-overlay">
-                    <span class="view-detail">View Details</span>
+                    <span class="view-detail">View</span>
                 </div>
-                ${availabilityBadge}
             </div>
             <div class="artwork-info">
                 <h3 class="artwork-title">${artwork.title}</h3>
                 <p class="artwork-details">${artwork.details}</p>
-                <p class="artwork-price">${artwork.price}</p>
-                ${artwork.available ? `
-                    <div class="artwork-actions">
-                        <button class="btn-purchase" data-id="${artwork.id}" data-title="${artwork.title.replace(/"/g, '&quot;')}" data-price="${artwork.price}">
-                            Purchase
-                        </button>
-                        <button class="btn-inquire" data-id="${artwork.id}" data-title="${artwork.title.replace(/"/g, '&quot;')}">
-                            Inquire
-                        </button>
-                    </div>
-                ` : '<p class="sold-text">This piece has been sold</p>'}
             </div>
         `;
-        
-        // Add button event listeners
-        if (artwork.available) {
-            const purchaseBtn = card.querySelector('.btn-purchase');
-            const inquireBtn = card.querySelector('.btn-inquire');
-            
-            if (purchaseBtn) {
-                purchaseBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    purchaseArtwork(artwork.id, artwork.title, artwork.price);
-                });
-            }
-            
-            if (inquireBtn) {
-                inquireBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    inquireArtwork(artwork.id, artwork.title);
-                });
-            }
-        }
         
         card.addEventListener('click', () => {
             currentArtworkIndex = index;
@@ -354,56 +284,3 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     });
 });
-
-// ==========================================
-// PURCHASE & INQUIRY FUNCTIONS
-// ==========================================
-
-// Purchase artwork - Opens PayPal payment
-function purchaseArtwork(artworkId, title, price) {
-    // For now, this sends an email. You can replace with PayPal/Stripe integration
-    const subject = encodeURIComponent(`Purchase Inquiry: ${title}`);
-    const body = encodeURIComponent(`Hi,\n\nI would like to purchase:\n\nArtwork: ${title}\nPrice: ${price}\n\nPlease send me payment details.\n\nThank you!`);
-    
-    window.location.href = `mailto:adniquiz@gmail.com?subject=${subject}&body=${body}`;
-}
-
-// Inquire about artwork
-function inquireArtwork(artworkId, title) {
-    const subject = encodeURIComponent(`Inquiry About: ${title}`);
-    const body = encodeURIComponent(`Hi,\n\nI'm interested in learning more about:\n\nArtwork: ${title}\n\nCould you provide more information?\n\nThank you!`);
-    
-    window.location.href = `mailto:adniquiz@gmail.com?subject=${subject}&body=${body}`;
-}
-
-// Submit commission form
-function submitCommission(event) {
-    event.preventDefault();
-    
-    const form = document.getElementById('commissionForm');
-    const formData = new FormData(form);
-    
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const artworkType = formData.get('artworkType');
-    const size = formData.get('size') || 'Not specified';
-    const description = formData.get('description');
-    const budget = formData.get('budget') || 'Not specified';
-    
-    const subject = encodeURIComponent(`Commission Request from ${name}`);
-    const body = encodeURIComponent(
-        `Commission Request Details:\n\n` +
-        `Name: ${name}\n` +
-        `Email: ${email}\n` +
-        `Artwork Type: ${artworkType}\n` +
-        `Size: ${size}\n` +
-        `Budget: ${budget}\n\n` +
-        `Description:\n${description}\n\n` +
-        `Please respond with pricing and timeline information.`
-    );
-    
-    window.location.href = `mailto:adniquiz@gmail.com?subject=${subject}&body=${body}`;
-    
-    // Reset form
-    form.reset();
-}
