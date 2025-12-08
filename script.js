@@ -3,7 +3,7 @@
 // ==========================================
 
 const ARTWORK_INFO = {
-    1: { title: "Allegoria della Vittoria", date: "2025", materials: "Oil on Canvas", price: "$850", available: true },
+    1: { title: "Allegoria della Vittoria", date: "2025", materials: "Oil on Canvas", price: "$850", available: false },
     2: { title: "La Dama con l'Ermellino", date: "2025", materials: "Oil on Canvas", price: "$950", available: true },
     3: { title: "Field of Sunflowers", date: "2025", materials: "Oil on Canvas", price: "$1,200", available: true },
     4: { title: "Salina", date: "2024", materials: "Watercolor on Paper", price: "$450", available: true },
