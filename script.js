@@ -212,16 +212,36 @@ function buildGallery(artworksData) {
                 <p class="artwork-price">${artwork.price}</p>
                 ${artwork.available ? `
                     <div class="artwork-actions">
-                        <button class="btn-purchase" onclick="purchaseArtwork(${artwork.id}, '${artwork.title}', '${artwork.price}'); event.stopPropagation();">
+                        <button class="btn-purchase" data-id="${artwork.id}" data-title="${artwork.title.replace(/"/g, '&quot;')}" data-price="${artwork.price}">
                             Purchase
                         </button>
-                        <button class="btn-inquire" onclick="inquireArtwork(${artwork.id}, '${artwork.title}'); event.stopPropagation();">
+                        <button class="btn-inquire" data-id="${artwork.id}" data-title="${artwork.title.replace(/"/g, '&quot;')}">
                             Inquire
                         </button>
                     </div>
                 ` : '<p class="sold-text">This piece has been sold</p>'}
             </div>
         `;
+        
+        // Add button event listeners
+        if (artwork.available) {
+            const purchaseBtn = card.querySelector('.btn-purchase');
+            const inquireBtn = card.querySelector('.btn-inquire');
+            
+            if (purchaseBtn) {
+                purchaseBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    purchaseArtwork(artwork.id, artwork.title, artwork.price);
+                });
+            }
+            
+            if (inquireBtn) {
+                inquireBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    inquireArtwork(artwork.id, artwork.title);
+                });
+            }
+        }
         
         card.addEventListener('click', () => {
             currentArtworkIndex = index;
