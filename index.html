@@ -20,11 +20,10 @@
             <a href="#gallery" class="nav-link">Works</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#contact" class="nav-link">Contact</a>
-            <a href="#commissions" class="nav-link">Commissions</a>
         </div>
     </nav>
 
-    <!-- Hero Section - Bold & Dramatic -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-background"></div>
         <div class="hero-content">
@@ -47,7 +46,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section - Your Beloved Grid -->
+    <!-- Gallery Section -->
     <section class="gallery-section" id="gallery">
         <div class="gallery-header">
             <h2 class="gallery-title">Selected Works</h2>
@@ -60,7 +59,7 @@
         </div>
     </section>
 
-    <!-- About Section - Editorial Style -->
+    <!-- About Section -->
     <section class="about-section" id="about">
         <div class="about-grid">
             <div class="about-text-col">
@@ -77,7 +76,7 @@
         </div>
     </section>
 
-    <!-- Contact Section - Bold & Simple -->
+    <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="contact-container">
             <h2 class="contact-title">Let's Connect</h2>
@@ -91,63 +90,6 @@
                     <a href="https://www.instagram.com/lelibra_/" class="contact-value" target="_blank">@lelibra_</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Commission Section -->
-    <section class="commission-section" id="commissions">
-        <div class="commission-container">
-            <h2 class="commission-title">Commission a Painting</h2>
-            <p class="commission-intro">Interested in a custom artwork? Fill out the form below and I'll get back to you within 24 hours.</p>
-            
-            <form class="commission-form" id="commissionForm" onsubmit="submitCommission(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Your Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="artworkType">Type of Artwork *</label>
-                    <select id="artworkType" name="artworkType" required>
-                        <option value="">Select type...</option>
-                        <option value="Oil on Canvas">Oil on Canvas</option>
-                        <option value="Watercolor">Watercolor</option>
-                        <option value="Pencil Drawing">Pencil Drawing</option>
-                        <option value="Mixed Media">Mixed Media</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="size">Preferred Size</label>
-                    <input type="text" id="size" name="size" placeholder='e.g., 24" × 36"'>
-                </div>
-                
-                <div class="form-group">
-                    <label for="description">Describe Your Vision *</label>
-                    <textarea id="description" name="description" rows="5" required placeholder="Tell me about your idea, preferred colors, subject matter, mood, etc."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="budget">Budget Range</label>
-                    <select id="budget" name="budget">
-                        <option value="">Select range...</option>
-                        <option value="Under $500">Under $500</option>
-                        <option value="$500 - $1,000">$500 - $1,000</option>
-                        <option value="$1,000 - $2,000">$1,000 - $2,000</option>
-                        <option value="$2,000+">$2,000+</option>
-                        <option value="Flexible">Flexible</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="btn-submit-commission">Send Commission Request</button>
-            </form>
         </div>
     </section>
 
@@ -167,4 +109,11 @@
             <img src="" alt="" id="lightbox-image">
             <div class="lightbox-info">
                 <h3 id="lightbox-title"></h3>
-            
+                <p id="lightbox-details"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
