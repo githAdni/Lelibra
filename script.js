@@ -7,7 +7,8 @@ const ARTWORK_INFO = {
     1: { 
         title: "Allegoria della Vittoria", 
         date: "2025", 
-        materials: "Oil on Canvas", 
+        materials: "Oil on Canvas",
+        materialsIT: "Olio su Tela",
         dimensions: '60cm × 90cm',
         price: "€800", 
         available: false 
@@ -15,7 +16,8 @@ const ARTWORK_INFO = {
     2: { 
         title: "La Dama con l'Ermellino", 
         date: "2025", 
-        materials: "Oil on Canvas", 
+        materials: "Oil on Canvas",
+        materialsIT: "Olio su Tela",
         dimensions: '50cm × 75cm',
         price: "€900", 
         available: true 
@@ -23,7 +25,8 @@ const ARTWORK_INFO = {
     3: { 
         title: "Field of Sunflowers", 
         date: "2025", 
-        materials: "Oil on Canvas", 
+        materials: "Oil on Canvas",
+        materialsIT: "Olio su Tela",
         dimensions: '75cm × 100cm',
         price: "€1.100", 
         available: true 
@@ -31,7 +34,8 @@ const ARTWORK_INFO = {
     4: { 
         title: "Salina", 
         date: "2024", 
-        materials: "Watercolor on Paper", 
+        materials: "Watercolor on Paper",
+        materialsIT: "Acquerello su Carta",
         dimensions: '28cm × 35cm',
         price: "€400", 
         available: true 
@@ -39,7 +43,8 @@ const ARTWORK_INFO = {
     5: { 
         title: "Green Moro", 
         date: "2024", 
-        materials: "Oil on Canvas", 
+        materials: "Oil on Canvas",
+        materialsIT: "Olio su Tela",
         dimensions: '60cm × 90cm',
         price: "€750", 
         available: true 
@@ -47,7 +52,8 @@ const ARTWORK_INFO = {
     6: { 
         title: "One st.Valentine Day", 
         date: "2024", 
-        materials: "Oil on Canvas", 
+        materials: "Oil on Canvas",
+        materialsIT: "Olio su Tela",
         dimensions: '50cm × 60cm',
         price: "€700", 
         available: true 
@@ -55,7 +61,8 @@ const ARTWORK_INFO = {
     7: { 
         title: "Cenacolo", 
         date: "2024", 
-        materials: "Oil on Canvas", 
+        materials: "Oil on Canvas",
+        materialsIT: "Olio su Tela",
         dimensions: '90cm × 120cm',
         price: "€1.000", 
         available: true 
@@ -63,7 +70,8 @@ const ARTWORK_INFO = {
     8: { 
         title: "Poiseidon", 
         date: "2024", 
-        materials: "Pencil on Paper", 
+        materials: "Pencil on Paper",
+        materialsIT: "Matita su Carta",
         dimensions: '20cm × 25cm',
         price: "€280", 
         available: true 
@@ -71,7 +79,8 @@ const ARTWORK_INFO = {
     9: { 
         title: "Dillo coi Fiori #1", 
         date: "2024", 
-        materials: "Watercolor on Paper", 
+        materials: "Watercolor on Paper",
+        materialsIT: "Acquerello su Carta",
         dimensions: '23cm × 30cm',
         price: "€350", 
         available: true 
@@ -79,7 +88,8 @@ const ARTWORK_INFO = {
     10: { 
         title: "The Creator", 
         date: "2024", 
-        materials: "Oil on Canvas", 
+        materials: "Oil on Canvas",
+        materialsIT: "Olio su Tela",
         dimensions: '75cm × 100cm',
         price: "€850", 
         available: true 
@@ -87,7 +97,8 @@ const ARTWORK_INFO = {
     11: { 
         title: "Famiglia", 
         date: "2024", 
-        materials: "Oil on Canvas", 
+        materials: "Oil on Canvas",
+        materialsIT: "Olio su Tela",
         dimensions: '60cm × 90cm',
         price: "€800", 
         available: false 
@@ -95,7 +106,8 @@ const ARTWORK_INFO = {
     12: { 
         title: "Dillo coi Fiori #2", 
         date: "2024", 
-        materials: "Watercolor on Paper", 
+        materials: "Watercolor on Paper",
+        materialsIT: "Acquerello su Carta",
         dimensions: '23cm × 30cm',
         price: "€350", 
         available: true 
@@ -103,7 +115,8 @@ const ARTWORK_INFO = {
     13: { 
         title: "Dillo coi Fiori #3", 
         date: "2024", 
-        materials: "Watercolor on Paper", 
+        materials: "Watercolor on Paper",
+        materialsIT: "Acquerello su Carta",
         dimensions: '23cm × 30cm',
         price: "€350", 
         available: true 
@@ -125,24 +138,21 @@ async function detectArtworks() {
                 const info = ARTWORK_INFO[i] || { 
                     title: `Artwork ${i}`, 
                     date: '2024', 
-                    materials: 'Canvas', 
+                    materials: 'Canvas',
+                    materialsIT: 'Tela',
                     dimensions: '',
                     price: 'Contact for Price', 
                     available: true 
                 };
                 
-                // Build details string with dimensions
-                let details = info.materials;
-                if (info.dimensions) {
-                    details += ` • ${info.dimensions}`;
-                }
-                details += ` • ${info.date}`;
-                
                 detectedArtworks.push({ 
                     id: i, 
                     image: imagePath, 
                     title: info.title, 
-                    details: details, 
+                    materials: info.materials,
+                    materialsIT: info.materialsIT || info.materials,
+                    dimensions: info.dimensions,
+                    date: info.date,
                     price: info.price, 
                     available: info.available, 
                     alt: info.title 
@@ -178,8 +188,17 @@ function buildGallery(artworksData) {
         card.className = 'artwork-card';
         card.dataset.artwork = artwork.id;
         card.style.animationDelay = `${0.1 * (index + 1)}s`;
+        
+        // Build details with current language
+        const materials = currentLang === 'it' ? artwork.materialsIT : artwork.materials;
+        let details = materials;
+        if (artwork.dimensions) {
+            details += ` • ${artwork.dimensions}`;
+        }
+        details += ` • ${artwork.date}`;
+        
         const badge = artwork.available ? `<span class="availability-badge available">${translations[currentLang].available}</span>` : `<span class="availability-badge sold">${translations[currentLang].sold}</span>`;
-        card.innerHTML = `<div class="artwork-image-wrapper"><img src="${artwork.image}" alt="${artwork.alt}" class="artwork-image" loading="lazy"><div class="artwork-overlay"><span class="view-detail">${translations[currentLang].viewDetails}</span></div>${badge}</div><div class="artwork-info"><h3 class="artwork-title">${artwork.title}</h3><p class="artwork-details">${artwork.details}</p><p class="artwork-price">${artwork.price}</p><div class="artwork-actions-container"></div></div>`;
+        card.innerHTML = `<div class="artwork-image-wrapper"><img src="${artwork.image}" alt="${artwork.alt}" class="artwork-image" loading="lazy"><div class="artwork-overlay"><span class="view-detail">${translations[currentLang].viewDetails}</span></div>${badge}</div><div class="artwork-info"><h3 class="artwork-title">${artwork.title}</h3><p class="artwork-details">${details}</p><p class="artwork-price">${artwork.price}</p><div class="artwork-actions-container"></div></div>`;
         const actionsContainer = card.querySelector('.artwork-actions-container');
         if (artwork.available) {
             actionsContainer.innerHTML = `<div class="artwork-actions"><button class="btn-purchase">${translations[currentLang].purchase}</button><button class="btn-inquire">${translations[currentLang].inquire}</button></div>`;
