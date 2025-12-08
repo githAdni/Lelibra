@@ -9,7 +9,7 @@ const ARTWORK_INFO = {
         date: "2025", 
         materials: "Oil on Canvas", 
         price: "$850", 
-        available: true 
+        available: false 
     },
     2: { 
         title: "La Dama con l'Ermellino", 
@@ -58,7 +58,7 @@ const ARTWORK_INFO = {
         date: "2024", 
         materials: "Pencil on Paper", 
         price: "$300", 
-        available: false    // ← MARKED AS SOLD FOR TESTING!
+        available: true
     },
     9: { 
         title: "Dillo coi Fiori #1", 
@@ -79,7 +79,7 @@ const ARTWORK_INFO = {
         date: "2024", 
         materials: "Oil on Canvas", 
         price: "$850", 
-        available: true 
+        available: false 
     },
     12: { 
         title: "Dillo coi Fiori #2", 
