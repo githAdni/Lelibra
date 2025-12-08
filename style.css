@@ -745,3 +745,229 @@ a {
         --spacing-xxl: 6rem;
     }
 }
+/* ==========================================
+   Purchase & Inquiry Features
+   ========================================== */
+
+.artwork-price {
+    font-size: 1.3rem;
+    color: var(--color-gold);
+    font-weight: 600;
+    margin-top: var(--spacing-sm);
+    font-family: var(--font-display);
+}
+
+.availability-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.availability-badge.available {
+    background: var(--color-pine);
+    color: var(--color-cream);
+    border: 1px solid var(--color-gold);
+}
+
+.availability-badge.sold {
+    background: var(--color-charcoal);
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    opacity: 0.8;
+}
+
+.artwork-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.btn-purchase,
+.btn-inquire {
+    flex: 1;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-quick);
+    font-family: var(--font-body);
+}
+
+.btn-purchase {
+    background: var(--color-gold);
+    color: var(--color-black);
+    border: 2px solid var(--color-gold);
+}
+
+.btn-purchase:hover {
+    background: transparent;
+    color: var(--color-gold);
+    transform: translateY(-2px);
+}
+
+.btn-inquire {
+    background: transparent;
+    color: var(--color-cream);
+    border: 2px solid var(--color-gold);
+}
+
+.btn-inquire:hover {
+    background: var(--color-gold);
+    color: var(--color-black);
+    transform: translateY(-2px);
+}
+
+.sold-text {
+    margin-top: var(--spacing-md);
+    color: var(--color-gold);
+    font-style: italic;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* ==========================================
+   Commission Section
+   ========================================== */
+
+.commission-section {
+    padding: var(--spacing-xxl) var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-black) 100%);
+}
+
+.commission-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.commission-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    color: var(--color-cream);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.commission-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0.9;
+}
+
+.commission-form {
+    background: rgba(255, 255, 255, 0.02);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+    color: var(--color-cream);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: var(--transition-quick);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(245, 241, 232, 0.5);
+}
+
+.btn-submit-commission {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--color-gold);
+    color: var(--color-black);
+    border: 2px solid var(--color-gold);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-quick);
+    font-family: var(--font-body);
+    margin-top: var(--spacing-md);
+}
+
+.btn-submit-commission:hover {
+    background: transparent;
+    color: var(--color-gold);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   Responsive - Forms
+   ========================================== */
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .artwork-actions {
+        flex-direction: column;
+    }
+    
+    .btn-purchase,
+    .btn-inquire {
+        width: 100%;
+    }
+}
