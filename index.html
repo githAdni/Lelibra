@@ -17,10 +17,15 @@
             <img src="images/logo.png" alt="LeLibra" class="nav-logo">
         </a>
         <div class="nav-links">
-            <a href="#gallery" class="nav-link">Works</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <a href="#commissions" class="nav-link">Commissions</a>
+            <a href="#gallery" class="nav-link" data-en="Works" data-it="Opere">Works</a>
+            <a href="#about" class="nav-link" data-en="About" data-it="Chi Sono">About</a>
+            <a href="#contact" class="nav-link" data-en="Contact" data-it="Contatti">Contact</a>
+            <a href="#commissions" class="nav-link" data-en="Commissions" data-it="Commissioni">Commissions</a>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <span class="lang-separator">|</span>
+                <button class="lang-btn" data-lang="it">IT</button>
+            </div>
         </div>
     </nav>
 
@@ -31,9 +36,9 @@
             <div class="hero-logo-container">
                 <img src="images/logo.png" alt="LeLibra" class="hero-logo">
             </div>
-            <h1 class="hero-headline">Canvas Works<br>That Speak</h1>
+            <h1 class="hero-headline" data-en="Canvas Works<br>That Speak" data-it="Opere su Tela<br>Che Parlano">Canvas Works<br>That Speak</h1>
             <div class="hero-scroll">
-                <span>Scroll to explore</span>
+                <span data-en="Scroll to explore" data-it="Scorri per esplorare">Scroll to explore</span>
                 <div class="scroll-line"></div>
             </div>
         </div>
@@ -42,7 +47,7 @@
     <!-- Statement Section -->
     <section class="statement-section">
         <div class="statement-content">
-            <h2 class="statement-text">"Art is not what you see,<br>but what you make others see."</h2>
+            <h2 class="statement-text" data-en=""Art is not what you see,<br>but what you make others see."" data-it=""L'arte non è ciò che vedi,<br>ma ciò che fai vedere agli altri."">"Art is not what you see,<br>but what you make others see."</h2>
             <p class="quote-attribution">— Edgar Degas</p>
         </div>
     </section>
@@ -50,8 +55,8 @@
     <!-- Gallery Section -->
     <section class="gallery-section" id="gallery">
         <div class="gallery-header">
-            <h2 class="gallery-title">Selected Works</h2>
-            <p class="gallery-subtitle">Original canvas paintings</p>
+            <h2 class="gallery-title" data-en="Selected Works" data-it="Opere Selezionate">Selected Works</h2>
+            <p class="gallery-subtitle" data-en="Original canvas paintings" data-it="Dipinti originali su tela">Original canvas paintings</p>
         </div>
         <div class="container">
             <div class="gallery-grid" id="gallery-grid">
@@ -64,11 +69,11 @@
     <section class="about-section" id="about">
         <div class="about-grid">
             <div class="about-text-col">
-                <h2 class="about-title">About<br>the Artist</h2>
+                <h2 class="about-title" data-en="About<br>the Artist" data-it="Chi è<br>l'Artista">About<br>the Artist</h2>
                 <div class="about-text">
-                    <p>LeLibra is a contemporary artist working primarily with canvas and mixed media. Each piece explores the intersection of color, emotion, and texture.</p>
-                    <p>The work invites viewers into a dialogue about perception and feeling, creating spaces for contemplation and discovery.</p>
-                    <p class="replace-note">[Replace with your own artist statement and background]</p>
+                    <p data-en="LeLibra is a contemporary artist working primarily with canvas and mixed media. Each piece explores the intersection of color, emotion, and texture." data-it="LeLibra è un'artista contemporanea che lavora principalmente con tela e tecniche miste. Ogni opera esplora l'intersezione tra colore, emozione e texture.">LeLibra is a contemporary artist working primarily with canvas and mixed media. Each piece explores the intersection of color, emotion, and texture.</p>
+                    <p data-en="The work invites viewers into a dialogue about perception and feeling, creating spaces for contemplation and discovery." data-it="Il lavoro invita gli spettatori in un dialogo sulla percezione e sul sentimento, creando spazi per la contemplazione e la scoperta.">The work invites viewers into a dialogue about perception and feeling, creating spaces for contemplation and discovery.</p>
+                    <p class="replace-note" data-en="[Replace with your own artist statement]" data-it="[Sostituisci con la tua biografia artistica]">[Replace with your own artist statement]</p>
                 </div>
             </div>
             <div class="about-visual-col">
@@ -80,10 +85,10 @@
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="contact-container">
-            <h2 class="contact-title">Let's Connect</h2>
+            <h2 class="contact-title" data-en="Let's Connect" data-it="Mettiamoci in Contatto">Let's Connect</h2>
             <div class="contact-info">
                 <div class="contact-item">
-                    <span class="contact-label">Email</span>
+                    <span class="contact-label" data-en="Email" data-it="Email">Email</span>
                     <a href="mailto:adniquiz@gmail.com" class="contact-value">adniquiz@gmail.com</a>
                 </div>
                 <div class="contact-item">
@@ -97,50 +102,50 @@
     <!-- Commission Section -->
     <section class="commission-section" id="commissions">
         <div class="commission-container">
-            <h2 class="commission-title">Commission a Painting</h2>
-            <p class="commission-intro">Interested in a custom artwork? Fill out the form below and I'll get back to you within 24 hours.</p>
+            <h2 class="commission-title" data-en="Commission a Painting" data-it="Commissiona un Dipinto">Commission a Painting</h2>
+            <p class="commission-intro" data-en="Interested in a custom artwork? Fill out the form below and I'll get back to you within 24 hours." data-it="Interessato ad un'opera personalizzata? Compila il modulo e ti risponderò entro 24 ore.">Interested in a custom artwork? Fill out the form below and I'll get back to you within 24 hours.</p>
             <form class="commission-form" id="commissionForm" onsubmit="submitCommission(event)">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="name">Your Name *</label>
+                        <label for="name" data-en="Your Name *" data-it="Il Tuo Nome *">Your Name *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Your Email *</label>
+                        <label for="email" data-en="Your Email *" data-it="La Tua Email *">Your Email *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="artworkType">Type of Artwork *</label>
+                    <label for="artworkType" data-en="Type of Artwork *" data-it="Tipo di Opera *">Type of Artwork *</label>
                     <select id="artworkType" name="artworkType" required>
-                        <option value="">Select type...</option>
-                        <option value="Oil on Canvas">Oil on Canvas</option>
-                        <option value="Watercolor">Watercolor</option>
-                        <option value="Pencil Drawing">Pencil Drawing</option>
-                        <option value="Mixed Media">Mixed Media</option>
-                        <option value="Other">Other</option>
+                        <option value="" data-en="Select type..." data-it="Seleziona tipo...">Select type...</option>
+                        <option value="Oil on Canvas" data-en="Oil on Canvas" data-it="Olio su Tela">Oil on Canvas</option>
+                        <option value="Watercolor" data-en="Watercolor" data-it="Acquerello">Watercolor</option>
+                        <option value="Pencil Drawing" data-en="Pencil Drawing" data-it="Disegno a Matita">Pencil Drawing</option>
+                        <option value="Mixed Media" data-en="Mixed Media" data-it="Tecnica Mista">Mixed Media</option>
+                        <option value="Other" data-en="Other" data-it="Altro">Other</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="size">Preferred Size</label>
-                    <input type="text" id="size" name="size" placeholder='e.g., 24" × 36"'>
+                    <label for="size" data-en="Preferred Size" data-it="Dimensione Preferita">Preferred Size</label>
+                    <input type="text" id="size" name="size" data-placeholder-en='e.g., 60cm × 90cm' data-placeholder-it='es., 60cm × 90cm' placeholder='e.g., 60cm × 90cm'>
                 </div>
                 <div class="form-group">
-                    <label for="description">Describe Your Vision *</label>
-                    <textarea id="description" name="description" rows="5" required placeholder="Tell me about your idea, preferred colors, subject matter, mood, etc."></textarea>
+                    <label for="description" data-en="Describe Your Vision *" data-it="Descrivi la Tua Visione *">Describe Your Vision *</label>
+                    <textarea id="description" name="description" rows="5" required data-placeholder-en="Tell me about your idea, preferred colors, subject matter, mood, etc." data-placeholder-it="Parlami della tua idea, colori preferiti, soggetto, atmosfera, ecc." placeholder="Tell me about your idea, preferred colors, subject matter, mood, etc."></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="budget">Budget Range</label>
+                    <label for="budget" data-en="Budget Range" data-it="Fascia di Budget">Budget Range</label>
                     <select id="budget" name="budget">
-                        <option value="">Select range...</option>
-                        <option value="Under $500">Under $500</option>
-                        <option value="$500 - $1,000">$500 - $1,000</option>
-                        <option value="$1,000 - $2,000">$1,000 - $2,000</option>
-                        <option value="$2,000+">$2,000+</option>
-                        <option value="Flexible">Flexible</option>
+                        <option value="" data-en="Select range..." data-it="Seleziona fascia...">Select range...</option>
+                        <option value="Under €500" data-en="Under €500" data-it="Sotto €500">Under €500</option>
+                        <option value="€500 - €1,000" data-en="€500 - €1,000" data-it="€500 - €1.000">€500 - €1,000</option>
+                        <option value="€1,000 - €2,000" data-en="€1,000 - €2,000" data-it="€1.000 - €2.000">€1,000 - €2,000</option>
+                        <option value="€2,000+" data-en="€2,000+" data-it="€2.000+">€2,000+</option>
+                        <option value="Flexible" data-en="Flexible" data-it="Flessibile">Flexible</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-submit-commission">Send Commission Request</button>
+                <button type="submit" class="btn-submit-commission" data-en="Send Commission Request" data-it="Invia Richiesta">Send Commission Request</button>
             </form>
         </div>
     </section>
@@ -178,21 +183,21 @@
                 <input type="hidden" id="artworkPrice" name="artworkPrice">
                 
                 <div class="form-group">
-                    <label for="contactName">Your Name *</label>
+                    <label for="contactName" data-en="Your Name *" data-it="Il Tuo Nome *">Your Name *</label>
                     <input type="text" id="contactName" name="name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="contactEmail">Your Email *</label>
+                    <label for="contactEmail" data-en="Your Email *" data-it="La Tua Email *">Your Email *</label>
                     <input type="email" id="contactEmail" name="email" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="messageField">Message *</label>
+                    <label for="messageField" data-en="Message *" data-it="Messaggio *">Message *</label>
                     <textarea id="messageField" name="message" rows="6" required></textarea>
                 </div>
                 
-                <button type="submit" class="btn-submit-contact">Send Message</button>
+                <button type="submit" class="btn-submit-contact" data-en="Send Message" data-it="Invia Messaggio">Send Message</button>
             </form>
         </div>
     </div>

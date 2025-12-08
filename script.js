@@ -178,15 +178,15 @@ function buildGallery(artworksData) {
         card.className = 'artwork-card';
         card.dataset.artwork = artwork.id;
         card.style.animationDelay = `${0.1 * (index + 1)}s`;
-        const badge = artwork.available ? '<span class="availability-badge available">Available</span>' : '<span class="availability-badge sold">Sold</span>';
-        card.innerHTML = `<div class="artwork-image-wrapper"><img src="${artwork.image}" alt="${artwork.alt}" class="artwork-image" loading="lazy"><div class="artwork-overlay"><span class="view-detail">View Details</span></div>${badge}</div><div class="artwork-info"><h3 class="artwork-title">${artwork.title}</h3><p class="artwork-details">${artwork.details}</p><p class="artwork-price">${artwork.price}</p><div class="artwork-actions-container"></div></div>`;
+        const badge = artwork.available ? `<span class="availability-badge available">${translations[currentLang].available}</span>` : `<span class="availability-badge sold">${translations[currentLang].sold}</span>`;
+        card.innerHTML = `<div class="artwork-image-wrapper"><img src="${artwork.image}" alt="${artwork.alt}" class="artwork-image" loading="lazy"><div class="artwork-overlay"><span class="view-detail">${translations[currentLang].viewDetails}</span></div>${badge}</div><div class="artwork-info"><h3 class="artwork-title">${artwork.title}</h3><p class="artwork-details">${artwork.details}</p><p class="artwork-price">${artwork.price}</p><div class="artwork-actions-container"></div></div>`;
         const actionsContainer = card.querySelector('.artwork-actions-container');
         if (artwork.available) {
-            actionsContainer.innerHTML = '<div class="artwork-actions"><button class="btn-purchase">Purchase</button><button class="btn-inquire">Inquire</button></div>';
+            actionsContainer.innerHTML = `<div class="artwork-actions"><button class="btn-purchase">${translations[currentLang].purchase}</button><button class="btn-inquire">${translations[currentLang].inquire}</button></div>`;
             actionsContainer.querySelector('.btn-purchase').addEventListener('click', function(e) { e.stopPropagation(); openPurchaseForm(artwork.id, artwork.title, artwork.price); });
             actionsContainer.querySelector('.btn-inquire').addEventListener('click', function(e) { e.stopPropagation(); openInquiryForm(artwork.id, artwork.title); });
         } else {
-            actionsContainer.innerHTML = '<p class="sold-text">This piece has been sold</p>';
+            actionsContainer.innerHTML = `<p class="sold-text">${translations[currentLang].soldText}</p>`;
         }
         card.addEventListener('click', function() { currentArtworkIndex = index; openLightbox(); });
         galleryGrid.appendChild(card);
@@ -279,7 +279,10 @@ function submitCommission(event) {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async function() {
-    document.getElementById('gallery-grid').innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem;"><p style="color: #D4AF37; font-size: 1.2rem;">Loading gallery...</p></div>';
+    // Initialize language switcher first
+    initLanguageSwitcher();
+    
+    document.getElementById('gallery-grid').innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem;"><p style="color: #D4AF37; font-size: 1.2rem;">${translations[currentLang].loading}</p></div>`;
     artworks = await detectArtworks();
     buildGallery(artworks);
     
@@ -311,3 +314,123 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     });
 });
+// ==========================================
+// LANGUAGE SWITCHER
+// ==========================================
+
+let currentLang = 'en';
+
+const translations = {
+    en: {
+        available: 'Available',
+        sold: 'Sold',
+        soldText: 'This piece has been sold',
+        purchase: 'Purchase',
+        inquire: 'Inquire',
+        loading: 'Loading gallery...',
+        viewDetails: 'View Details',
+        purchaseInquiry: 'Purchase Inquiry',
+        inquiryAbout: 'Inquiry About Artwork'
+    },
+    it: {
+        available: 'Disponibile',
+        sold: 'Venduto',
+        soldText: 'Questa opera è stata venduta',
+        purchase: 'Acquista',
+        inquire: 'Informazioni',
+        loading: 'Caricamento galleria...',
+        viewDetails: 'Vedi Dettagli',
+        purchaseInquiry: 'Richiesta di Acquisto',
+        inquiryAbout: 'Informazioni sull\'Opera'
+    }
+};
+
+function switchLanguage(lang) {
+    currentLang = lang;
+    
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Update all elements with data attributes
+    document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.dataset[lang];
+        if (text) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                // Update placeholder
+                const placeholderKey = `placeholder${lang.charAt(0).toUpperCase() + lang.slice(1)}`;
+                if (el.dataset[placeholderKey]) {
+                    el.placeholder = el.dataset[placeholderKey];
+                }
+            } else {
+                // Update text content
+                el.innerHTML = text;
+            }
+        }
+    });
+    
+    // Rebuild gallery with translated buttons
+    if (artworks.length > 0) {
+        buildGallery(artworks);
+    }
+    
+    // Save language preference
+    localStorage.setItem('preferredLanguage', lang);
+}
+
+// Initialize language switcher
+function initLanguageSwitcher() {
+    // Check for saved language preference
+    const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+    switchLanguage(savedLang);
+    
+    // Add click handlers to language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            switchLanguage(btn.dataset.lang);
+        });
+    });
+}
+
+// Update openPurchaseForm to use translations
+window.openPurchaseForm = function(artworkId, title, price) {
+    const modal = document.getElementById('contactModal');
+    document.getElementById('contactFormTitle').textContent = translations[currentLang].purchaseInquiry;
+    document.getElementById('contactFormSubtitle').textContent = `Artwork: ${title} • ${price}`;
+    document.getElementById('inquiryType').value = 'purchase';
+    document.getElementById('artworkTitle').value = title;
+    document.getElementById('artworkPrice').value = price;
+    
+    const purchaseMsg = currentLang === 'it' 
+        ? `Vorrei acquistare "${title}" per ${price}. Per favore inviatemi i dettagli di pagamento e spedizione.`
+        : `I would like to purchase "${title}" for ${price}. Please send me payment details and shipping information.`;
+    
+    document.getElementById('messageField').value = purchaseMsg;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+// Update openInquiryForm to use translations
+window.openInquiryForm = function(artworkId, title) {
+    const modal = document.getElementById('contactModal');
+    document.getElementById('contactFormTitle').textContent = translations[currentLang].inquiryAbout;
+    document.getElementById('contactFormSubtitle').textContent = `Artwork: ${title}`;
+    document.getElementById('inquiryType').value = 'inquiry';
+    document.getElementById('artworkTitle').value = title;
+    document.getElementById('artworkPrice').value = '';
+    
+    const inquiryMsg = currentLang === 'it'
+        ? `Sono interessato/a a saperne di più su "${title}". Potreste fornirmi maggiori informazioni?`
+        : `I am interested in learning more about "${title}". Could you provide more information?`;
+    
+    document.getElementById('messageField').value = inquiryMsg;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+// Add language switcher initialization to DOMContentLoaded
+const originalInit = document.addEventListener('DOMContentLoaded', async function() {});
