@@ -50,22 +50,30 @@ const ARTWORK_INFO = {
         materials: "Pencil on Paper"
     },
     9: {
-        title: "Untitled 9",
+        title: "Dillo coi Fiori #1",
         date: "2024",
-        materials: "Acrylic on Canvas"
+        materials: "Watercolor on Paper"
     },
     10: {
-        title: "Untitled 10",
+        title: "The Creator",
         date: "2024",
         materials: "Oil on Canvas"
     },
     11: {
-        title: "Untitled 11",
+        title: "Famiglia",
         date: "2024",
-        materials: "Acrylic on Canvas"
+        materials: "Oil on Canvas"
     },
-    // Add more artworks as needed...
-    // Just copy the pattern above!
+    12: {
+        title: "Dillo coi Fiori #2",
+        date: "2024",
+        materials: "Watercolor on Paper"
+    },
+    13: {
+        title: "Dillo coi Fiori #3",
+        date: "2024",
+        materials: "Watercolor on Paper"
+    
 };
 
 // Configuration
