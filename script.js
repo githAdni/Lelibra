@@ -8,104 +8,104 @@ const ARTWORK_INFO = {
         title: "Allegoria della Vittoria", 
         date: "2025", 
         materials: "Oil on Canvas", 
-        dimensions: '24" × 36"',
-        price: "$850", 
+        dimensions: '60cm × 90cm',
+        price: "€800", 
         available: false 
     },
     2: { 
         title: "La Dama con l'Ermellino", 
         date: "2025", 
         materials: "Oil on Canvas", 
-        dimensions: '20" × 30"',
-        price: "$950", 
+        dimensions: '50cm × 75cm',
+        price: "€900", 
         available: true 
     },
     3: { 
         title: "Field of Sunflowers", 
         date: "2025", 
         materials: "Oil on Canvas", 
-        dimensions: '30" × 40"',
-        price: "$1,200", 
+        dimensions: '75cm × 100cm',
+        price: "€1.100", 
         available: true 
     },
     4: { 
         title: "Salina", 
         date: "2024", 
         materials: "Watercolor on Paper", 
-        dimensions: '11" × 14"',
-        price: "$450", 
+        dimensions: '28cm × 35cm',
+        price: "€400", 
         available: true 
     },
     5: { 
         title: "Green Moro", 
         date: "2024", 
         materials: "Oil on Canvas", 
-        dimensions: '24" × 36"',
-        price: "$800", 
+        dimensions: '60cm × 90cm',
+        price: "€750", 
         available: true 
     },
     6: { 
         title: "One st.Valentine Day", 
         date: "2024", 
         materials: "Oil on Canvas", 
-        dimensions: '20" × 24"',
-        price: "$750", 
+        dimensions: '50cm × 60cm',
+        price: "€700", 
         available: true 
     },
     7: { 
         title: "Cenacolo", 
         date: "2024", 
         materials: "Oil on Canvas", 
-        dimensions: '36" × 48"',
-        price: "$1,100", 
+        dimensions: '90cm × 120cm',
+        price: "€1.000", 
         available: true 
     },
     8: { 
         title: "Poiseidon", 
         date: "2024", 
         materials: "Pencil on Paper", 
-        dimensions: '8" × 10"',
-        price: "$300", 
+        dimensions: '20cm × 25cm',
+        price: "€280", 
         available: true 
     },
     9: { 
         title: "Dillo coi Fiori #1", 
         date: "2024", 
         materials: "Watercolor on Paper", 
-        dimensions: '9" × 12"',
-        price: "$400", 
+        dimensions: '23cm × 30cm',
+        price: "€350", 
         available: true 
     },
     10: { 
         title: "The Creator", 
         date: "2024", 
         materials: "Oil on Canvas", 
-        dimensions: '30" × 40"',
-        price: "$900", 
+        dimensions: '75cm × 100cm',
+        price: "€850", 
         available: true 
     },
     11: { 
         title: "Famiglia", 
         date: "2024", 
         materials: "Oil on Canvas", 
-        dimensions: '24" × 36"',
-        price: "$850", 
+        dimensions: '60cm × 90cm',
+        price: "€800", 
         available: false 
     },
     12: { 
         title: "Dillo coi Fiori #2", 
         date: "2024", 
         materials: "Watercolor on Paper", 
-        dimensions: '9" × 12"',
-        price: "$400", 
+        dimensions: '23cm × 30cm',
+        price: "€350", 
         available: true 
     },
     13: { 
         title: "Dillo coi Fiori #3", 
         date: "2024", 
         materials: "Watercolor on Paper", 
-        dimensions: '9" × 12"',
-        price: "$400", 
+        dimensions: '23cm × 30cm',
+        price: "€350", 
         available: true 
     }
 };
