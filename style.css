@@ -750,11 +750,13 @@ a {
    ========================================== */
 
 .artwork-price {
-    font-size: 1.3rem;
-    color: var(--color-gold);
-    font-weight: 600;
-    margin-top: var(--spacing-sm);
-    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: #D4AF37;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.02em;
 }
 
 .availability-badge {
@@ -785,8 +787,8 @@ a {
 
 .artwork-actions {
     display: flex;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-md);
+    gap: 0.75rem;
+    margin-top: 1rem;
 }
 
 .btn-purchase,
@@ -800,31 +802,31 @@ a {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: var(--transition-quick);
-    font-family: var(--font-body);
+    transition: all 0.3s ease;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .btn-purchase {
-    background: var(--color-gold);
-    color: var(--color-black);
-    border: 2px solid var(--color-gold);
+    background: #D4AF37;
+    color: #0A0A0A;
+    border: 2px solid #D4AF37;
 }
 
 .btn-purchase:hover {
     background: transparent;
-    color: var(--color-gold);
+    color: #D4AF37;
     transform: translateY(-2px);
 }
 
 .btn-inquire {
     background: transparent;
-    color: var(--color-cream);
-    border: 2px solid var(--color-gold);
+    color: #F5F1E8;
+    border: 2px solid #D4AF37;
 }
 
 .btn-inquire:hover {
-    background: var(--color-gold);
-    color: var(--color-black);
+    background: #D4AF37;
+    color: #0A0A0A;
     transform: translateY(-2px);
 }
 
