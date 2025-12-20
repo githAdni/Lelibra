@@ -2,18 +2,18 @@
 const ARTWORK_INFO = {
     1: { title: "Allegoria della Vittoria", date: "2025", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '40cm x 50cm', price: "800 EUR", available: false },
     2: { title: "La Dama con l'Ermellino", date: "2025", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '40cm x 60cm', price: "850 EUR", available: false },
-    3: { title: "Field of Sunflowers", date: "2025", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '75cm x 100cm', price: "1100 EUR", available: true },
-    4: { title: "Salina", date: "2024", materials: "Watercolor on Paper", materialsIT: "Acquerello su Carta", dimensions: '28cm x 35cm', price: "400 EUR", available: true },
-    5: { title: "Green Moro", date: "2024", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '60cm x 90cm', price: "750 EUR", available: true },
-    6: { title: "One st.Valentine Day", date: "2024", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '50cm x 60cm', price: "700 EUR", available: true },
-    7: { title: "Cenacolo", date: "2024", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '90cm x 120cm', price: "1000 EUR", available: true },
-    8: { title: "Poiseidon", date: "2024", materials: "Pencil on Paper", materialsIT: "Matita su Carta", dimensions: '20cm x 25cm', price: "280 EUR", available: true },
-    9: { title: "Dillo coi Fiori #1", date: "2024", materials: "Watercolor on Paper", materialsIT: "Acquerello su Carta", dimensions: '23cm x 30cm', price: "350 EUR", available: true },
-    10: { title: "The Creator", date: "2024", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '75cm x 100cm', price: "850 EUR", available: true },
-    11: { title: "Famiglia", date: "2024", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '60cm x 90cm', price: "800 EUR", available: false },
-    12: { title: "Dillo coi Fiori #2", date: "2024", materials: "Watercolor on Paper", materialsIT: "Acquerello su Carta", dimensions: '23cm x 30cm', price: "350 EUR", available: true },
-    13: { title: "Dillo coi Fiori #3", date: "2024", materials: "Watercolor on Paper", materialsIT: "Acquerello su Carta", dimensions: '23cm x 30cm', price: "350 EUR", available: true },
-    14: { title: "The Lion King", date: "2023", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '40cm x 30cm', price: "200 EUR", available: true }
+    3: { title: "Field of Sunflowers", date: "2025", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '60cm x 40cm', price: "500 EUR", available: true },
+    4: { title: "Salina", date: "2024", materials: "Watercolor on Paper", materialsIT: "Acquerello su Carta", dimensions: '21cm x 29.7cm', price: "25 EUR", available: false },
+    5: { title: "Green Moro", date: "2024", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '30cm x 40cm', price: "250 EUR", available: false },
+    6: { title: "One st.Valentine Day", date: "2022", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '40cm x 40cm', price: "300 EUR", available: false },
+    7: { title: "Cenacolo", date: "2024", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '60cm x 30cm', price: "900 EUR", available: false },
+    8: { title: "Poiseidon", date: "2024", materials: "Pencil on Paper", materialsIT: "Matita su Carta", dimensions: '21cm x 29.7cm', price: "10 EUR", available: false },
+    9: { title: "Dillo coi Fiori #1", date: "2024", materials: "Watercolor on Paper", materialsIT: "Acquerello su Carta", dimensions: '21cm x 29.7cm', price: "25 EUR", available: true },
+    10: { title: "The Creator", date: "2024", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '60cm x 40cm', price: "900 EUR", available: false },
+    11: { title: "Famiglia", date: "2024", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '70cm x 40cm', price: "900 EUR", available: false },
+    12: { title: "Dillo coi Fiori #2", date: "2024", materials: "Watercolor on Paper", materialsIT: "Acquerello su Carta", dimensions: '21cm x 29.7cm', price: "25 EUR", available: true },
+    13: { title: "Dillo coi Fiori #3", date: "2024", materials: "Watercolor on Paper", materialsIT: "Acquerello su Carta", dimensions: '21cm x 29.7cm', price: "25 EUR", available: true },
+    14: { title: "The Lion King", date: "2023", materials: "Oil on Canvas", materialsIT: "Olio su Tela", dimensions: '40cm x 30cm', price: "200 EUR", available: false }
 };
 
 const CONFIG = { maxArtworks: 100, imagePath: 'images/', imageFormats: ['jpg', 'jpeg', 'png', 'webp'] };
